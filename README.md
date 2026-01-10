@@ -6,9 +6,9 @@ FitDrop is a personal exploration of fashion history (1980-2025) and a testament
 
 This repo is structured to help you understand the process—and potentially "vibe code" your own version.
 
-## The Vibe Pipeline
+## The Pipeline
 
-I built this project in a simple, linear pipeline. You can follow along to create your own.
+I built this project in a simple, linear pipeline. I'm hoping these instructions are clear enough for you to follow along and create your own version.
 
 ### 1. The Data (`data/prompts.json`)
 Everything starts with the data. I used Gemini to generate a JSON file containing 45 years of fashion history.
