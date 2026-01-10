@@ -435,11 +435,14 @@ if (infoPopover && infoBtn) {
     });
 
     // Close when clicking outside
-    document.addEventListener('click', (e) => {
+    const closePopover = (e) => {
         if (!infoPopover.contains(e.target) && e.target !== infoBtn) {
             infoPopover.classList.remove('visible');
         }
-    });
+    };
+
+    document.addEventListener('click', closePopover);
+    document.addEventListener('touchstart', closePopover);
 
     // Auto-open check
     window.addEventListener('load', () => {
