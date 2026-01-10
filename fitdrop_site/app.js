@@ -21,11 +21,12 @@ const Engine = Matter.Engine,
     MouseConstraint = Matter.MouseConstraint,
     Body = Matter.Body;
 
-// OPTIMIZATION: enableSleeping allows bodies to stop simulating when at rest
+// OPTIMIZATION ROLLED BACK: Sleeping broke mobile interaction (bodies became static/grey).
+// Restoring continuous simulation and default iterations for robustness.
 const engine = Engine.create({
-    enableSleeping: true,
-    positionIterations: isMobile ? 4 : 6, // Reduce iterations on mobile
-    velocityIterations: isMobile ? 2 : 4
+    enableSleeping: false, // Critical fix: prevent bodies from sleeping
+    // positionIterations: 6, // Default (restored)
+    // velocityIterations: 4  // Default (restored)
 });
 const world = engine.world;
 
