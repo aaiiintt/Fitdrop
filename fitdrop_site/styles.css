@@ -323,6 +323,8 @@ html {
     background: rgba(255, 255, 255, 0.95);
     /* Higher opacity */
     border: 1px solid #000;
+    min-height: 500px;
+    /* Fixed height to prevent jumping */
     padding: 25px;
     /* Restore standard padding */
     box-shadow: -5px -5px 0px rgba(0, 0, 0, 0.1);
