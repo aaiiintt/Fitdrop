@@ -6,7 +6,7 @@
     --text-color: #111;
     --accent-color: #333;
     --zone-color: rgba(0, 0, 0, 0.05);
-    --panel-bg: #fff;
+    --panel-bg: rgba(255, 255, 255, 0.85);
     --font-main: 'Space Mono', monospace;
 }
 
@@ -59,14 +59,53 @@ html {
     position: absolute;
     top: 20px;
     left: 20px;
-    font-size: 1.2rem;
+    font-size: 0.9rem;
+    /* Harmonized font size */
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.1em;
+    padding: 10px 0;
+    /* Align baseline roughly with buttons if needed */
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    /* Space between text and button */
 }
 
 #year-counter {
     color: #666;
+    margin-left: 0.5em;
+    /* Fallback spacing */
+}
+
+#replay-btn {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    background: transparent;
+    color: #000;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 30;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border-radius: 0;
+    display: flex;
+    /* Permanent */
+    align-items: center;
+    justify-content: center;
+}
+
+#replay-btn:hover {
+    background: transparent;
+    color: #000;
+    opacity: 0.6;
 }
 
 /* ==========================================================================
@@ -78,16 +117,22 @@ html {
     right: 20px;
     width: 120px;
     height: 120px;
-    border: 1px dashed #aaa;
-    border-radius: 8px;
+    border: 1px solid #000;
+    /* Solid border to match others */
+    border-radius: 0;
+    /* Square/hard edges for harmony */
     display: flex;
     align-items: center;
     justify-content: center;
     text-align: center;
-    font-size: 0.7rem;
-    color: #888;
+    font-size: 0.9rem;
+    /* Harmonized font size */
+    font-weight: 700;
+    /* Bold */
+    color: #000;
     transition: all 0.3s ease;
-    background: var(--zone-color);
+    background: transparent;
+    text-transform: uppercase;
 }
 
 #drop-zone.active {
@@ -96,6 +141,14 @@ html {
     transform: scale(1.05);
     color: #000;
 }
+
+/* Panel Open State - Hide Drop Zone */
+#ui-layer.panel-open #drop-zone {
+    opacity: 0;
+    pointer-events: none;
+}
+
+
 
 /* ==========================================================================
    Info Panel (Slide-out)
@@ -169,7 +222,8 @@ html {
     font-size: 0.85rem;
     font-weight: 400;
     text-transform: uppercase;
-    margin-bottom: 2rem;
+    margin-bottom: 3rem;
+    /* Reduced spacing */
     line-height: 1.4;
     color: #111;
     word-break: break-word;
@@ -179,24 +233,22 @@ html {
     display: none;
 }
 
-h4 {
-    font-size: 0.8rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    margin-bottom: 1rem;
-    color: #888;
-}
+/* h4 removed */
 
 #panel-wardrobe {
     list-style: none;
     font-size: 0.75rem;
     line-height: 1.6;
+    margin-top: -1rem;
+    /* Pull up closer to label */
 }
 
 #panel-wardrobe li {
-    margin-bottom: 1rem;
-    padding-left: 1rem;
-    border-left: 2px solid #eee;
+    margin-bottom: 0.5rem;
+    /* Tighter list spacing */
+    padding-left: 0;
+    border-left: none;
+    /* Remove border for cleaner look */
 }
 
 /* ==========================================================================
@@ -237,6 +289,7 @@ h4 {
     padding: 10px 20px;
     font-family: var(--font-main);
     font-size: 0.9rem;
+    /* Harmonized font size */
     font-weight: 700;
     cursor: pointer;
     pointer-events: auto;
@@ -244,6 +297,7 @@ h4 {
     text-transform: uppercase;
     border: 1px solid #000;
     transition: all 0.2s ease;
+    border-radius: 0;
 }
 
 #info-btn:hover {
@@ -256,7 +310,8 @@ h4 {
     bottom: 70px;
     right: 20px;
     width: 320px;
-    background: #fff;
+    background: rgba(255, 255, 255, 0.85);
+    /* 85% opacity */
     border: 1px solid #000;
     padding: 20px;
     box-shadow: -5px -5px 0px rgba(0, 0, 0, 0.1);

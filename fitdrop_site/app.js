@@ -7,13 +7,21 @@
  * Configuration settings for the physics simulation and UI.
  * @constant {Object}
  */
+// Mobile detection
+const isMobile = window.innerWidth <= 600;
+
+/**
+ * Configuration settings for the physics simulation and UI.
+ * @constant {Object}
+ */
 const CONFIG = {
     dropInterval: 1400, // ms between drops
-    scale: 0.35,        // Scale of images relative to original size (tweak as needed)
-    soundThreshold: 2.5, // Velocity threshold for sound playback
+    scale: isMobile ? 0.15 : 0.35, // Dynamic scaling: 0.15 on mobile
+    soundThreshold: isMobile ? 4.0 : 2.5, // Higher threshold on mobile to reduce noise
     scrollPadding: 200, // Pixel buffer above highest item for camera scrolling
     groundHeight: 100,  // Thickness of the invisible ground
-    wallThickness: 200  // Thickness of the invisible walls
+    wallThickness: 200, // Thickness of the invisible walls
+    soundCooldown: isMobile ? 200 : 100 // Throttling: min ms between sounds
 };
 
 // --- State Management ---
@@ -23,7 +31,9 @@ const state = {
     highestPoint: 0,
     offsetY: 0,     // Camera vertical offset
     loadedTextures: {},
-    audio: null
+    audio: null,
+    audioUnlocked: false,
+    lastSoundTime: 0 // For throttling
 };
 
 // --- Physics Engine Setup ---
@@ -63,14 +73,38 @@ try {
     console.log("Audio file not found or blocked");
 }
 
+// Unlock audio on first user interaction
+const unlockAudio = () => {
+    if (state.audioUnlocked || !state.audio) return;
+
+    // Play silent sound to unlock AudioContext
+    state.audio.play().then(() => {
+        state.audio.pause();
+        state.audio.currentTime = 0;
+        state.audioUnlocked = true;
+        // Remove listeners once unlocked
+        document.removeEventListener('click', unlockAudio);
+        document.removeEventListener('touchstart', unlockAudio);
+    }).catch(e => console.log("Unlock failed", e));
+};
+
+document.addEventListener('click', unlockAudio);
+document.addEventListener('touchstart', unlockAudio);
+
 /**
  * Plays the collision sound effect with slight variation.
  */
 const playSound = () => {
-    if (state.audio) {
+    const now = Date.now();
+    if (state.audio && state.audioUnlocked) {
+        // Throttling check
+        if (now - state.lastSoundTime < CONFIG.soundCooldown) return;
+
         const sound = state.audio.cloneNode();
         sound.volume = 0.3 + Math.random() * 0.2;
         sound.play().catch(() => { });
+
+        state.lastSoundTime = now;
     }
 };
 
@@ -181,10 +215,23 @@ function spawnFit(data) {
  * Main loop to drop items at intervals.
  */
 function startDrops() {
-    if (state.currentIndex >= FIT_DATA.length) return;
+    if (state.currentIndex >= FIT_DATA.length) {
+        // End of sequence
+        state.isDropping = false;
+
+        // Update UI for end state
+        const yearCounter = document.getElementById('year-counter');
+        if (yearCounter) yearCounter.innerText = "1980–2025";
+        return;
+    }
 
     const data = FIT_DATA[state.currentIndex];
     spawnFit(data);
+
+    // Update Counter
+    const counter = document.getElementById('year-counter');
+    if (counter) counter.innerText = data.year;
+
     state.currentIndex++;
 
     setTimeout(startDrops, CONFIG.dropInterval);
@@ -309,11 +356,24 @@ function showPanel(data) {
     }
 
     infoPanel.classList.add('visible');
+    const uiLayer = document.getElementById('ui-layer');
+    if (uiLayer) uiLayer.classList.add('panel-open');
 }
 
 document.getElementById('close-panel').addEventListener('click', () => {
     infoPanel.classList.remove('visible');
+    const uiLayer = document.getElementById('ui-layer');
+    if (uiLayer) uiLayer.classList.remove('panel-open');
 });
+
+// Replay Button Logic
+const replayBtn = document.getElementById('replay-btn');
+if (replayBtn) {
+    replayBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        window.location.reload();
+    });
+}
 
 // Info Popover Logic
 const infoBtn = document.getElementById('info-btn');
@@ -343,10 +403,13 @@ Render.run(render);
 Runner.run(runner, engine);
 
 // Handle Resize
+// Reload page on resize to reset physics and layout cleanly
+let resizeTimeout;
 window.addEventListener('resize', () => {
-    render.canvas.width = window.innerWidth;
-    render.canvas.height = window.innerHeight;
-    createBoundaries();
+    clearTimeout(resizeTimeout);
+    resizeTimeout = setTimeout(() => {
+        window.location.reload();
+    }, 500);
 });
 
 // Start the drop sequence
