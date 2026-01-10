@@ -43,6 +43,8 @@ html {
     pointer-events: none;
     /* Let clicks pass through to canvas */
     z-index: 10;
+    overflow: hidden;
+    /* Prevent off-screen children from expanding viewport */
 }
 
 /* Enable pointer events only on interactive UI elements */
@@ -165,7 +167,9 @@ html {
     border-left: 1px solid #ddd;
     padding: 40px;
     transform: translateX(100%);
-    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    /* Visibility transition ensures it hides AFTER sliding out */
+    visibility: hidden;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0.4s;
     box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
     z-index: 20;
     overflow-y: auto;
@@ -175,6 +179,9 @@ html {
 
 #info-panel.visible {
     transform: translateX(0);
+    /* Show immediately when becoming visible */
+    visibility: visible;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), visibility 0s linear 0s;
 }
 
 #close-panel {

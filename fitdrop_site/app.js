@@ -10,32 +10,6 @@
 // Mobile detection
 const isMobile = window.innerWidth <= 600;
 
-/**
- * Configuration settings for the physics simulation and UI.
- * @constant {Object}
- */
-const CONFIG = {
-    dropInterval: 1400, // ms between drops
-    scale: isMobile ? 0.15 : 0.35, // Dynamic scaling: 0.15 on mobile
-    soundThreshold: isMobile ? 4.0 : 2.5, // Higher threshold on mobile to reduce noise
-    scrollPadding: 200, // Pixel buffer above highest item for camera scrolling
-    groundHeight: 100,  // Thickness of the invisible ground
-    wallThickness: 200, // Thickness of the invisible walls
-    soundCooldown: isMobile ? 200 : 100 // Throttling: min ms between sounds
-};
-
-// --- State Management ---
-const state = {
-    currentIndex: 0,
-    isDropping: true,
-    highestPoint: 0,
-    offsetY: 0,     // Camera vertical offset
-    loadedTextures: {},
-    audio: null,
-    audioUnlocked: false,
-    lastSoundTime: 0 // For throttling
-};
-
 // --- Physics Engine Setup ---
 const Engine = Matter.Engine,
     Render = Matter.Render,
@@ -50,6 +24,87 @@ const Engine = Matter.Engine,
 const engine = Engine.create();
 const world = engine.world;
 
+// --- Dev Mode / Tweakpane Setup ---
+const PARAMS = {
+    // Physics
+    dropInterval: 1400,
+    physicsScale: isMobile ? 0.35 : 0.35, // Default scale multiplier for physics bodies
+    visualScale: isMobile ? 0.3 : 0.5,   // Scale multiplier for visual sprites
+    restitution: 0.2,
+    friction: 0.5,
+    density: 0.001,
+    scaleRatio: 1.0, // Ratio between visual and physics size
+
+    // Environment
+    gravityY: 1,
+    timeScale: 1.0,
+
+    // Actions
+    reset: () => resetWorld(),
+    isMobileMode: isMobile // Just for display
+};
+
+let pane;
+
+function initTweakpane() {
+    if (typeof Tweakpane === 'undefined') {
+        setTimeout(initTweakpane, 200);
+        return;
+    }
+
+    pane = new Tweakpane.Pane({ title: 'FitDrop Tuning' });
+
+    const f1 = pane.addFolder({ title: 'Physics & Scale' });
+    f1.addInput(PARAMS, 'physicsScale', { min: 0.1, max: 2.0, step: 0.05, label: 'Body Size' });
+    f1.addInput(PARAMS, 'visualScale', { min: 0.1, max: 2.0, step: 0.05, label: 'Image Size' });
+    f1.addInput(PARAMS, 'restitution', { min: 0, max: 1.2, label: 'Bounciness' });
+    f1.addInput(PARAMS, 'friction', { min: 0, max: 1, label: 'Friction' });
+
+    const f2 = pane.addFolder({ title: 'Environment' });
+    f2.addInput(PARAMS, 'gravityY', { min: 0, max: 5, label: 'Gravity Y' }).on('change', (ev) => {
+        engine.gravity.y = ev.value;
+    });
+    f2.addInput(PARAMS, 'timeScale', { min: 0.1, max: 3, label: 'Time Scale' }).on('change', (ev) => {
+        engine.timing.timeScale = ev.value;
+    });
+    f2.addInput(PARAMS, 'dropInterval', { min: 200, max: 3000, label: 'Drop Rate (ms)' });
+
+    const f3 = pane.addFolder({ title: 'Actions' });
+    f3.addButton({ title: 'Reset World' }).on('click', PARAMS.reset);
+
+    // Initial sync
+    engine.gravity.y = PARAMS.gravityY;
+    engine.timing.timeScale = PARAMS.timeScale;
+}
+
+// Initialize Tweakpane after load
+window.addEventListener('load', initTweakpane);
+
+
+/**
+ * Static Config (Non-tweakable or derived)
+ */
+const CONFIG = {
+    scrollPadding: 200, // Pixel buffer above highest item for camera scrolling
+    groundHeight: 100,  // Thickness of the invisible ground
+    wallThickness: 200, // Thickness of the invisible walls
+    soundCooldown: isMobile ? 200 : 100, // Throttling: min ms between sounds
+    soundThreshold: isMobile ? 4.0 : 2.5
+};
+
+// --- State Management ---
+const state = {
+    currentIndex: 0,
+    isDropping: true,
+    highestPoint: 0,
+    offsetY: 0,     // Camera vertical offset
+    loadedTextures: {},
+    audio: null,
+    audioUnlocked: false,
+    lastSoundTime: 0 // For throttling
+};
+
+
 // Initialize Renderer
 const render = Render.create({
     element: document.getElementById('world'),
@@ -58,7 +113,7 @@ const render = Render.create({
         width: window.innerWidth,
         height: window.innerHeight,
         background: '#f4f4f4',
-        wireframes: false,
+        wireframes: false, // Set to true to debug physics bodies vs visuals
         showAngleIndicator: false
     }
 });
@@ -167,19 +222,20 @@ function spawnFit(data) {
     const x = margin + Math.random() * (window.innerWidth - margin * 2);
     const y = -300 - state.offsetY; // Spawn above current view
 
-    // Calculate dimensions
-    const width = 200 * CONFIG.scale * (window.innerWidth < 600 ? 0.8 : 1.2);
+    // Tunable Dimensions
+    // Base width reference is 200px. We scale this by our new physicsScale param.
+    const baseWidth = 200;
+    const width = baseWidth * PARAMS.physicsScale;
     const height = width * 2.5; // Roughly human proportion
 
     const body = Bodies.rectangle(x, y, width, height, {
-        restitution: 0.2, // Bouncy
-        friction: 0.5,
+        restitution: PARAMS.restitution,
+        friction: PARAMS.friction,
         angle: (Math.random() - 0.5) * 0.5, // Slight random rotation
         render: {
             sprite: {
                 texture: data.image,
-                xScale: (width / 768) * CONFIG.scale * 3, // Approx scaling based on raw asset size
-                yScale: (width / 768) * CONFIG.scale * 3
+                // We calculate scale later
             }
         },
         plugin: {
@@ -188,33 +244,44 @@ function spawnFit(data) {
         }
     });
 
-    // Refine body bounds for better collision boxes
-    const baseImageWidth = 800;
-    const targetWidth = 180;
-    const scaleFactor = targetWidth / baseImageWidth;
-    const aspect = 1376 / 768; // Based on known image dims
-    const actualHeight = targetWidth * aspect;
+    // --- CRITICAL FIX FOR DENSITY ---
+    // Previously, we had a disconnect between physics body size and visual size.
+    // Now we explicitly invoke the visual scale here.
 
-    Body.set(body, {
-        bounds: {
-            min: { x: x - targetWidth / 2, y: y - actualHeight / 2 },
-            max: { x: x + targetWidth / 2, y: y + actualHeight / 2 }
-        }
-    });
+    // Scale Logic:
+    // The raw images are ~800px wide.
+    // We want the VISUAL width to be determined by PARAMS.visualScale relative to screen or base.
+    // Let's say base visual width is also relative to the 200px standard or similar.
 
-    body.render.sprite.xScale = scaleFactor;
-    body.render.sprite.yScale = scaleFactor;
+    const rawImageWidth = 800; // Approx
+
+    // Let's define visual width as:
+    const targetVisualWidth = 500 * PARAMS.visualScale; // E.g. at 0.5 scale = 250px visual width
+
+    const spriteScale = targetVisualWidth / rawImageWidth;
+
+    // Apply sprite scale
+    body.render.sprite.xScale = spriteScale;
+    body.render.sprite.yScale = spriteScale;
+
+    // Update body properties if they changed mid-sim (though usually set on creation)
+    body.restitution = PARAMS.restitution;
+    body.friction = PARAMS.friction;
 
     Composite.add(world, body);
 
     // Update UI Year counter
-    document.getElementById('year-counter').innerText = data.year;
+    const counter = document.getElementById('year-counter');
+    if (counter) counter.innerText = data.year;
 }
 
 /**
  * Main loop to drop items at intervals.
  */
+let dropTimeout;
 function startDrops() {
+    clearTimeout(dropTimeout);
+
     if (state.currentIndex >= FIT_DATA.length) {
         // End of sequence
         state.isDropping = false;
@@ -228,14 +295,35 @@ function startDrops() {
     const data = FIT_DATA[state.currentIndex];
     spawnFit(data);
 
-    // Update Counter
-    const counter = document.getElementById('year-counter');
-    if (counter) counter.innerText = data.year;
-
     state.currentIndex++;
 
-    setTimeout(startDrops, CONFIG.dropInterval);
+    // Loop using the tunable interval
+    dropTimeout = setTimeout(startDrops, PARAMS.dropInterval);
 }
+
+function resetWorld() {
+    clearTimeout(dropTimeout);
+
+    // Remove all dynamic bodies
+    const all = Composite.allBodies(world);
+    const toRemove = all.filter(b => !b.isStatic); // Keep walls/ground
+    Composite.remove(world, toRemove);
+
+    // Reset State
+    state.currentIndex = 0;
+    state.isDropping = true;
+    state.offsetY = 0;
+
+    // Reset Camera
+    Render.lookAt(render, {
+        min: { x: 0, y: 0 },
+        max: { x: window.innerWidth, y: window.innerHeight }
+    });
+
+    // Restart Drops
+    setTimeout(startDrops, 500);
+}
+
 
 // --- Render Loop & Camera Logic ---
 
