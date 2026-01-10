@@ -11,10 +11,10 @@ I built this project in a simple, linear pipeline. You can follow along to creat
 ### 1. The Data (`data/prompts.json`)
 Everything starts with the data. I used Gemini to generate a JSON file containing 45 years of fashion history.
 *   **Action**: Edit `data/prompts.json` to define your own "looks" or characters.
-*   **Tip**: Use an LLM to generate your own looks into this JSON structure for you. "Give me 10 eras of [Your Topic] in this JSON format..."
+*   **Tip**: Use an LLM to generate your own looks into this JSON structure for you. "Give me a set of 'looks' in this JSON format... (obviously have fun with this bit)"
 
 ### 2. The Identity (`data/reference_poses/`)
-This is the secret sauce. To make the generated images actually look like *someone* (in this case, me), we use "Subject Injection".
+To make the generated images actually look like *someone* (in this case, me), we use "Subject Injection".
 *   We don't just use random poses. We use a **Reference Cloud** of 10-15 images of the subject.
 *   These images (Anchor, Context, Expression) are fed into Gemini 3.0 Pro to create a semantic cluster of the person's identity.
 *   The script (`pipeline/1_generate_images.js`) grabs these from `data/reference_poses/`.
@@ -23,14 +23,13 @@ This is the secret sauce. To make the generated images actually look like *someo
 ### 3. The Shoot (`pipeline/1_generate_images.js`)
 We don't draw; we prompt. This script acts as our photographer.
 *   It reads your `prompts.json`.
-*   It grabs a random reference pose.
 *   It sends everything to **Gemini 3.0 Pro** (Image Model).
 *   **Run it**: `node pipeline/1_generate_images.js`
 *   **Output**: Raw images land in `generated/raw/`.
 
 ### 4. The Cut (`pipeline/2_process_cutouts.py`)
-Studio magic. We need transparent backgrounds for the physics engine to look real.
-*   This script wraps the amazing `transparent-background` tool.
+We need transparent backgrounds for the physics engine to look real.
+*   This script wraps the brilliant `transparent-background` tool.
 *   It takes the raw images and automagically removes the background.
 *   **Run it**: `python pipeline/2_process_cutouts.py`
 *   **Output**: Clean, transparent PNGs are saved directly to `fitdrop_site/images/`.
@@ -55,7 +54,7 @@ The interactive playground.
 2.  **Add your API Key**: Create a `.env` file with `GEMINI_API_KEY=your_key`.
 3.  **Install Deps**:
     *   JS: `npm install`
-    *   Python: `pip install transparent-background` (The secret sauce)
+    *   Python: `pip install transparent-background`
 
 **The Workflow:**
 1.  **Drop your reference images** into `data/reference_poses/`.
