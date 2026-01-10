@@ -25,14 +25,16 @@ To make the generated images actually look like *someone* (in this case, me), we
 *   The script (`pipeline/1_generate_images.js`) grabs these from `data/reference_poses/`.
 *   **Deep Dive**: Read [IDENTITY_GUIDE.md](IDENTITY_GUIDE.md) for the full theory on "Anthropomorphic Fidelity" and why we structure the data this way.
 
-### 3. The Shoot (`pipeline/1_generate_images.js`)
-We don't draw; we prompt. This script acts as our photographer.
+### 3. The "Shoot" (`pipeline/1_generate_images.js`)
+This script acts as our photographer.
 *   It reads your `prompts.json`.
 *   It sends everything to **Gemini 3.0 Pro** (Image Model).
 *   **Run it**: `node pipeline/1_generate_images.js`
 *   **Output**: Raw images land in `generated/raw/`.
 
-### 4. The Cut (`pipeline/2_process_cutouts.py`)
+**WARNING**: Nano Banana Pro is not 'cheap' generating tons of images can rack up costs quite quickly so be careful of autorunning large batches of image generations.
+
+### 4. Cutouts (`pipeline/2_process_cutouts.py`)
 We need transparent backgrounds for the physics engine to look real.
 *   This script wraps the brilliant `transparent-background` tool.
 *   It takes the raw images and automagically removes the background.
@@ -44,6 +46,7 @@ The interactive playground.
 *   Built with **Matter.js** (Physics) and vanilla JS.
 *   No heavy frameworks. Just `index.html`, `app.js`, and `styles.css`.
 *   **Run it**: `cd fitdrop_site && python3 -m http.server`
+*   **Tech Note**: The physics bodies are simple rectangles (1:2.5 aspect ratio) that approximate the human shape. We don't use complex polygon hulls for performance reasons. The transparent PNG is just a texture painted on top of this invisible rectangular block.
 
 ---
 
