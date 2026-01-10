@@ -31,9 +31,10 @@ We don't draw; we prompt. This script acts as our photographer.
 
 ### 4. The Cut (`pipeline/2_process_cutouts.py`)
 Studio magic. We need transparent backgrounds for the physics engine to look real.
-*   This Python script uses `rembg` (AI background removal) to cleanly cut out the subjects.
+*   This script wraps the amazing `transparent-background` tool.
+*   It takes the raw images and automagically removes the background.
 *   **Run it**: `python pipeline/2_process_cutouts.py`
-*   **Output**: Clean, transparent PNGs are saved to `fitdrop_site/images/`.
+*   **Output**: Clean, transparent PNGs are saved directly to `fitdrop_site/images/`.
 
 ### 5. The Drop (`fitdrop_site/`)
 The interactive playground.
@@ -47,7 +48,7 @@ The interactive playground.
 
 **Prerequisites:**
 *   Node.js
-*   Python (with `rembg`, `Pillow`)
+*   Python 3.8+
 *   A Google Gemini API Key (saved in `.env`)
 
 **Setup:**
@@ -55,7 +56,7 @@ The interactive playground.
 2.  **Add your API Key**: Create a `.env` file with `GEMINI_API_KEY=your_key`.
 3.  **Install Deps**:
     *   JS: `npm install`
-    *   Python: `pip install rembg pillow`
+    *   Python: `pip install transparent-background` (The secret sauce)
 
 **The Workflow:**
 1.  **Drop your reference images** into `data/reference_poses/`.

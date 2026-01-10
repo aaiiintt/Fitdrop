@@ -1,73 +1,66 @@
+import subprocess
+import sys
 from pathlib import Path
-from rembg import remove
-from PIL import Image
-import concurrent.futures
-import time
 import os
 
 # --- Configuration ---
-INPUT_DIR = Path(__file__).parent.parent / "generated" / "raw"
-OUTPUT_DIR = Path(__file__).parent.parent / "generated" / "cutouts"
-# We also copy/move to site? For now, just generate to output. 
-# Creating a dedicated output keeps it clean. User can copy to site.
-# Or we can output directly to fitdrop_site/images? 
-# Let's output to generated/cutouts so it's inspection-ready.
-
-SITE_ASSETS_DIR = Path(__file__).parent.parent / "fitdrop_site" / "images"
-
-# --- Setup ---
-OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
-SITE_ASSETS_DIR.mkdir(parents=True, exist_ok=True)
-
-def process_image(img_path):
-    try:
-        if img_path.name.startswith('.'): return # Skip hidden files
-        
-        # Determine output filename (add _rgba suffix as per convention)
-        if "_rgba" in img_path.stem:
-            out_name = img_path.name # Already processed naming?
-        else:
-            out_name = f"{img_path.stem}_rgba.png"
-            
-        out_path = OUTPUT_DIR / out_name
-        site_path = SITE_ASSETS_DIR / out_name
-        
-        if out_path.exists() and site_path.exists():
-            print(f"Skipping {img_path.name} (already exists)")
-            return
-
-        print(f"Processing {img_path.name}...")
-        
-        # Load and remove background
-        inp = Image.open(img_path)
-        output = remove(inp)
-        
-        # Save to generated/cutouts (Source of truth for assets)
-        output.save(out_path)
-        
-        # Copy to site (Deployment ready)
-        output.save(site_path)
-        
-        print(f"✓ Saved {out_name}")
-
-    except Exception as e:
-        print(f"Error processing {img_path.name}: {e}")
+# Relative paths from this script (pipeline/2_process_cutouts.py)
+BASE_DIR = Path(__file__).parent.parent
+INPUT_DIR = BASE_DIR / "generated" / "raw"
+OUTPUT_DIR = BASE_DIR / "fitdrop_site" / "images"
 
 def main():
-    print(f"Looking for images in {INPUT_DIR}...")
-    images = list(INPUT_DIR.glob("*.png"))
+    print("--- ✂️  The Cut (Background Removal) ✂️  ---")
     
+    # Check if input directory exists and has images
+    if not INPUT_DIR.exists():
+        print(f"Error: Input directory not found: {INPUT_DIR}")
+        return
+        
+    images = list(INPUT_DIR.glob("*.png"))
     if not images:
-        print("No images found to process.")
+        print(f"No PNG images found in {INPUT_DIR}")
+        print("Did you run Step 1 (Generation) first?")
         return
 
-    print(f"Found {len(images)} images. processing...")
+    # Ensure output directory exists
+    OUTPUT_DIR.mkdir(parents=True, exist_ok=True)
     
-    # Process in parallel for speed
-    with concurrent.futures.ThreadPoolExecutor() as executor:
-        executor.map(process_image, images)
+    print(f"Found {len(images)} images in {INPUT_DIR.name}")
+    print(f"Destination: {OUTPUT_DIR.name}")
+    print("Running transparent-background...")
+    
+    # Construct the command
+    # transparent-background --source [src] --dest [dest]
+    # We add --fast for speed, though user didn't specify it, it's usually good for bulk.
+    # Actually, sticking to user's exact command style:
+    # transparent-background --source . --dest output_images
+    
+    cmd = [
+        "transparent-background",
+        "--source", str(INPUT_DIR),
+        "--dest", str(OUTPUT_DIR),
+        "--type", "rgba" # Ensure alpha channel
+    ]
+    
+    try:
+        # Check if tool is installed
+        subprocess.run(["transparent-background", "--help"], capture_output=True, check=True)
+    except (subprocess.CalledProcessError, FileNotFoundError):
+        print("\n❌ Error: 'transparent-background' tool not found.")
+        print("Please install it running:")
+        print("pip install transparent-background")
+        sys.exit(1)
+
+    try:
+        # Run the tool
+        subprocess.run(cmd, check=True)
+        print("\n✅ Cutouts complete!")
+        print(f"Images saved to: {OUTPUT_DIR}")
         
-    print("Done! Check 'generated/cutouts' and 'fitdrop_site/images'.")
+    except subprocess.CalledProcessError as e:
+        print(f("\n❌ Error running transparent-background: {e}"))
+        sys.exit(1)
 
 if __name__ == "__main__":
     main()
