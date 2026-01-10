@@ -364,9 +364,9 @@ Events.on(engine, 'collisionStart', (event) => {
  * @param {Object} data - The item data to display.
  */
 function showPanel(data) {
-    document.getElementById('panel-year').innerText = data.year;
+    document.getElementById('panel-year').textContent = data.year;
     document.getElementById('panel-image').src = data.image; // Set image source
-    document.getElementById('panel-label').innerText = data.label.replace(/-/g, ' '); // Clean label
+    document.getElementById('panel-label').textContent = data.label.replace(/-/g, ' '); // Clean label
 
     const wardrobeList = document.getElementById('panel-wardrobe');
     wardrobeList.innerHTML = '';
@@ -374,7 +374,7 @@ function showPanel(data) {
     if (Array.isArray(data.wardrobe)) {
         data.wardrobe.forEach(item => {
             const li = document.createElement('li');
-            li.innerText = item;
+            li.textContent = item;
             wardrobeList.appendChild(li);
         });
     } else {
@@ -464,13 +464,18 @@ Render.run(render);
 Runner.run(runner, engine);
 
 // Handle Resize
-// Reload page on resize to reset physics and layout cleanly
+// Smart Resize: Only reload if width changes (orientation change), ignoring mobile URL bar scroll
+let lastWidth = window.innerWidth;
 let resizeTimeout;
+
 window.addEventListener('resize', () => {
-    clearTimeout(resizeTimeout);
-    resizeTimeout = setTimeout(() => {
-        window.location.reload();
-    }, 500);
+    if (window.innerWidth !== lastWidth) {
+        lastWidth = window.innerWidth;
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(() => {
+            window.location.reload();
+        }, 500);
+    }
 });
 
 // Start the drop sequence
