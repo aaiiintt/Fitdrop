@@ -84,11 +84,11 @@ html {
     position: absolute;
     bottom: 20px;
     left: 20px;
-    background: transparent;
+    background: #ffffff;
     color: #000;
-    border: none;
+    border: 1px solid #ddd;
     outline: none;
-    padding: 10px;
+    padding: 10px 20px;
     font-family: var(--font-main);
     font-size: 0.9rem;
     font-weight: 700;
@@ -99,15 +99,16 @@ html {
     transition: all 0.2s ease;
     border-radius: 0;
     display: flex;
-    /* Permanent */
     align-items: center;
     justify-content: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 #replay-btn:hover {
-    background: transparent;
-    color: #000;
-    opacity: 0.6;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
+    opacity: 1;
 }
 
 /* ==========================================================================
@@ -290,9 +291,9 @@ html {
     position: absolute;
     bottom: 20px;
     right: 20px;
-    background: #000;
-    color: #fff;
-    border: none;
+    background: #ffffff;
+    color: #000;
+    border: 1px solid #ddd;
     padding: 10px 20px;
     font-family: var(--font-main);
     font-size: 0.9rem;
@@ -302,13 +303,15 @@ html {
     pointer-events: auto;
     z-index: 30;
     text-transform: uppercase;
-    border: 1px solid #000;
     transition: all 0.2s ease;
     border-radius: 0;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
 }
 
 #info-btn:hover {
-    background: #fff;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+    background: #ffffff;
     color: #000;
 }
 
