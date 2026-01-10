@@ -211,6 +211,9 @@ function spawnFit(data) {
         }
     });
 
+    // Force body to never sleep
+    body.sleepThreshold = Infinity;
+
     // Scale Logic:
     const rawImageWidth = 800; // Approx raw asset size
     const targetVisualWidth = 500 * CONFIG.visualScale; // Tuned multiplier
