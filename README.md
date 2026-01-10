@@ -1,25 +1,24 @@
 # FITDROP: A Vibe Coding Experiment
 
-> "How fast can we go from 'idea' to 'deployed interactive web app' using modern AI tools?"
-
 FitDrop is a personal exploration of fashion history (1980-2025) and a testament to the speed of AI-assisted prototyping ("Vibe Coding").
 
 This repo is structured to help you understand the process—and potentially "vibe code" your own version.
 
 ## The Vibe Pipeline
 
-We built this project in a simple, linear pipeline. You can follow along to create your own.
+I built this project in a simple, linear pipeline. You can follow along to create your own.
 
 ### 1. The Data (`data/prompts.json`)
-Everything starts with the data. We used Gemini to generate a JSON file containing 45 years of fashion history.
+Everything starts with the data. I used Gemini to generate a JSON file containing 45 years of fashion history.
 *   **Action**: Edit `data/prompts.json` to define your own "looks" or characters.
-*   **Tip**: Use an LLM to generate this JSON structure for you. "Give me 10 eras of [Your Topic] in this JSON format..."
+*   **Tip**: Use an LLM to generate your own looks into this JSON structure for you. "Give me 10 eras of [Your Topic] in this JSON format..."
 
-### 2. The Poses (`data/reference_poses/`)
-Consistency is key. To make the "pile" work physically, we needed consistent poses.
-*   We used 10-20 reference images (mannequins/models in specific falling poses).
-*   These live in `data/reference_poses/`.
-*   The generator selects one of these randomly to ensure the AI output matches the physical "hitbox" of the website.
+### 2. The Identity (`data/reference_poses/`)
+This is the secret sauce. To make the generated images actually look like *someone* (in this case, me), we use "Subject Injection".
+*   We don't just use random poses. We use a **Reference Cloud** of 10-15 images of the subject.
+*   These images (Anchor, Context, Expression) are fed into Gemini 3.0 Pro to create a semantic cluster of the person's identity.
+*   The script (`pipeline/1_generate_images.js`) grabs these from `data/reference_poses/`.
+*   **Deep Dive**: Read [IDENTITY_GUIDE.md](IDENTITY_GUIDE.md) for the full theory on "Anthropomorphic Fidelity" and why we structure the data this way.
 
 ### 3. The Shoot (`pipeline/1_generate_images.js`)
 We don't draw; we prompt. This script acts as our photographer.
