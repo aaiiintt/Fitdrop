@@ -70,7 +70,8 @@ const state = {
 
 // Initialize Renderer
 // OPTIMIZATION: Cap pixel ratio on mobile to prevent huge canvases
-const pixelRatio = isMobile ? Math.min(window.devicePixelRatio, 1.5) : window.devicePixelRatio;
+// Revert optimization: Pixel ratio cap caused hit-test mismatches on high-DPI
+const pixelRatio = window.devicePixelRatio;
 
 const render = Render.create({
     element: document.getElementById('world'),
