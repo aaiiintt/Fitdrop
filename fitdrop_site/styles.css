@@ -320,16 +320,17 @@ html {
     bottom: 70px;
     right: 20px;
     width: 320px;
-    background: rgba(255, 255, 255, 0.85);
-    /* 85% opacity */
+    background: rgba(255, 255, 255, 0.95);
+    /* Higher opacity */
     border: 1px solid #000;
-    padding: 20px;
+    /* Hard black border */
+    padding: 0;
+    /* Remove padding to let tabs flush */
     box-shadow: -5px -5px 0px rgba(0, 0, 0, 0.1);
     z-index: 9999;
     pointer-events: auto;
     font-size: 0.75rem;
     line-height: 1.5;
-
     /* Transition */
     opacity: 0;
     visibility: hidden;
@@ -359,43 +360,54 @@ html {
 /* Tabs Navigation */
 .popover-tabs {
     display: flex;
-    border-bottom: 1px solid #ddd;
-    margin-bottom: 15px;
-    margin-top: -10px;
-    /* Pull into padding slightly */
-    gap: 5px;
+    border-bottom: 2px solid #000;
+    /* The "Folder" rail */
+    margin: 15px 15px 0 15px;
+    /* Offset from edges */
+    gap: 4px;
 }
 
 .tab-btn {
-    background: transparent;
-    border: 1px solid transparent;
+    background: #e0e0e0;
+    /* Inactive: Grey */
+    border: 2px solid transparent;
     border-bottom: none;
-    padding: 8px 12px;
+    padding: 8px 16px;
     cursor: pointer;
     font-family: var(--font-main);
     font-size: 0.8rem;
     font-weight: 700;
-    color: #666;
+    color: #888;
     text-transform: uppercase;
-    transition: all 0.2s ease;
-    border-radius: 4px 4px 0 0;
-    /* Rounded top corners */
+    transition: all 0.1s ease;
+    border-radius: 6px 6px 0 0;
+    /* Folder rounded corners */
+    margin-bottom: -2px;
+    /* Pull down to sit on the line */
+    position: relative;
+    z-index: 1;
 }
 
 .tab-btn:hover {
+    background: #d0d0d0;
     color: #000;
-    background: rgba(0, 0, 0, 0.05);
 }
 
 .tab-btn.active {
-    background: #000;
-    color: #fff;
-    border-color: #000;
+    background: #fff;
+    /* Active: White merge */
+    color: #000;
+    border: 2px solid #000;
+    border-bottom: 2px solid #fff;
+    /* Erase the line */
+    z-index: 3;
 }
 
 /* Tab Content */
 .tab-content {
     display: none;
+    padding: 20px;
+    /* Add padding back here */
     animation: fadeIn 0.3s ease;
 }
 
