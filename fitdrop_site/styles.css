@@ -1,0 +1,304 @@
+/* ==========================================================================
+   Variables & Reset
+   ========================================================================== */
+:root {
+    --bg-color: #f4f4f4;
+    --text-color: #111;
+    --accent-color: #333;
+    --zone-color: rgba(0, 0, 0, 0.05);
+    --panel-bg: #fff;
+    --font-main: 'Space Mono', monospace;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* ==========================================================================
+   Layout & Base
+   ========================================================================== */
+body,
+html {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    /* Canvas handles scrolling visuals */
+    background-color: var(--bg-color);
+    font-family: var(--font-main);
+    color: var(--text-color);
+}
+
+/* ==========================================================================
+   UI Layer (Overlays)
+   ========================================================================== */
+#ui-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Let clicks pass through to canvas */
+    z-index: 10;
+}
+
+/* Enable pointer events only on interactive UI elements */
+#info-panel {
+    pointer-events: auto;
+}
+
+#drop-zone,
+#title {
+    pointer-events: none;
+}
+
+#title {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    font-size: 1.2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+}
+
+#year-counter {
+    color: #666;
+}
+
+/* ==========================================================================
+   Drop Zone
+   ========================================================================== */
+#drop-zone {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 120px;
+    height: 120px;
+    border: 1px dashed #aaa;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 0.7rem;
+    color: #888;
+    transition: all 0.3s ease;
+    background: var(--zone-color);
+}
+
+#drop-zone.active {
+    border-color: #000;
+    background: rgba(0, 0, 0, 0.1);
+    transform: scale(1.05);
+    color: #000;
+}
+
+/* ==========================================================================
+   Info Panel (Slide-out)
+   ========================================================================== */
+#info-panel {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    width: 400px;
+    max-width: 90%;
+    /* Mobile friendly */
+    background: var(--panel-bg);
+    border-left: 1px solid #ddd;
+    padding: 40px;
+    transform: translateX(100%);
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    box-shadow: -10px 0 30px rgba(0, 0, 0, 0.05);
+    z-index: 20;
+    overflow-y: auto;
+    font-size: 0.75rem;
+    font-weight: 400;
+}
+
+#info-panel.visible {
+    transform: translateX(0);
+}
+
+#close-panel {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #999;
+}
+
+#close-panel:hover {
+    color: #000;
+}
+
+#panel-year {
+    font-size: 1.5rem;
+    font-weight: 400;
+    margin-bottom: 20px;
+    border-bottom: 1px solid #000;
+    padding-bottom: 10px;
+    letter-spacing: -0.05em;
+}
+
+.image-container {
+    width: 100%;
+    margin: 20px 0;
+    display: flex;
+    justify-content: center;
+}
+
+#panel-image {
+    max-width: 75%;
+    max-height: 300px;
+    /* Limit height to keep panel usable */
+    height: auto;
+    display: block;
+    object-fit: contain;
+    margin: 0 auto;
+}
+
+#panel-label {
+    font-size: 0.85rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    margin-bottom: 2rem;
+    line-height: 1.4;
+    color: #111;
+    word-break: break-word;
+}
+
+.divider {
+    display: none;
+}
+
+h4 {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    margin-bottom: 1rem;
+    color: #888;
+}
+
+#panel-wardrobe {
+    list-style: none;
+    font-size: 0.75rem;
+    line-height: 1.6;
+}
+
+#panel-wardrobe li {
+    margin-bottom: 1rem;
+    padding-left: 1rem;
+    border-left: 2px solid #eee;
+}
+
+/* ==========================================================================
+   Canvas
+   ========================================================================== */
+#world {
+    width: 100%;
+    height: 100%;
+    background: #f4f4f4;
+}
+
+/* ==========================================================================
+   Mobile Responsive
+   ========================================================================== */
+@media (max-width: 600px) {
+    #info-panel {
+        width: 100%;
+        border-left: none;
+    }
+
+    #drop-zone {
+        width: 80px;
+        height: 80px;
+        font-size: 0.6rem;
+    }
+}
+
+/* ==========================================================================
+   Info Popover & Button
+   ========================================================================== */
+#info-btn {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    background: #000;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    font-family: var(--font-main);
+    font-size: 0.9rem;
+    font-weight: 700;
+    cursor: pointer;
+    pointer-events: auto;
+    z-index: 30;
+    text-transform: uppercase;
+    border: 1px solid #000;
+    transition: all 0.2s ease;
+}
+
+#info-btn:hover {
+    background: #fff;
+    color: #000;
+}
+
+#info-popover {
+    position: absolute;
+    bottom: 70px;
+    right: 20px;
+    width: 320px;
+    background: #fff;
+    border: 1px solid #000;
+    padding: 20px;
+    box-shadow: -5px -5px 0px rgba(0, 0, 0, 0.1);
+    z-index: 9999;
+    pointer-events: auto;
+    font-size: 0.75rem;
+    line-height: 1.5;
+
+    /* Transition */
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.2s ease-out;
+}
+
+#info-popover.visible {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#info-popover p {
+    margin-bottom: 10px;
+}
+
+#info-popover ol {
+    padding-left: 20px;
+    margin-bottom: 10px;
+}
+
+#info-popover li {
+    margin-bottom: 5px;
+}
+
+#info-arrow {
+    position: absolute;
+    bottom: 100%;
+    right: 0;
+    width: 150px;
+    height: auto;
+    pointer-events: none;
+    z-index: 10001;
+    opacity: 0.9;
+    transform: rotate(10deg) translate(20px, 20px);
+}

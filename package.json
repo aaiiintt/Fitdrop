@@ -1,0 +1,13 @@
+{
+    "name": "fashion-timeline-generator",
+    "version": "1.0.0",
+    "description": "Interactive physics-based fashion timeline and generation tools",
+    "main": "test_generation.js",
+    "scripts": {
+        "setup": "node setup_prompts.js",
+        "test": "node test_generation.js"
+    },
+    "dependencies": {
+        "dotenv": "^16.4.5"
+    }
+}

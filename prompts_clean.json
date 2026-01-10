@@ -1,0 +1,1677 @@
+{
+  "project": "Fashion Timeline 1980-2025",
+  "version": "2.0",
+  "methodology": "Nano Banana Pro JSON Schema",
+  "reference_config": {
+    "note": "All images constrained to referenceId 1 for identity clustering",
+    "subject_id": 1,
+    "subject_reference": "The man from reference [$1]",
+    "images": [
+      "01_Anchor_Front.JPG",
+      "02_Anchor_45Right.JPG",
+      "03_Anchor_45Left.JPG",
+      "04_Anchor_ChinUp.JPG",
+      "05_Context_Standing.JPG",
+      "06_Context_Action.JPG",
+      "07_Context_Seated.JPG",
+      "08_Expression_Laugh.JPG",
+      "09_Expression_Smirk.JPG",
+      "10_Texture_Detail.JPG"
+    ]
+  },
+  "prompts": [
+    {
+      "label": "1980-blitz-kid-new-romantic",
+      "year": 1980,
+      "tags": [
+        "new-romantic",
+        "blitz-kid",
+        "london",
+        "theatrical"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "theatrical New Romantic styling"
+      ],
+      "MadeOutOf": [
+        "Vivienne Westwood 'Pirate' collection ruffled white poet shirt, billowing sleeves, deep V-neck with lace trim",
+        "High-waisted black satin trousers, pleated front, tapered ankle, side stripe detail",
+        "Vintage brocade waistcoat in burgundy and gold, antique buttons",
+        "Black leather winklepicker boots, pointed toe, Cuban heel",
+        "Multiple strand pearl necklace worn asymmetrically"
+      ],
+      "Arrangement": "Theatrical pose with one hand raised dramatically, head tilted back, embodying New Romantic theatricality",
+      "RoomObjects": [],
+      "Accessories": [
+        "dramatic kohl eyeliner visible",
+        "asymmetric pearl strands"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "burgundy and gold accent from waistcoat",
+        "black satin trousers with subtle sheen",
+        "white shirt as brightest element against skin"
+      ],
+      "Mood": "theatrical, decadent, romantic rebellion"
+    },
+    {
+      "label": "1981-prep-ivy-league-revival",
+      "year": 1981,
+      "tags": [
+        "preppy",
+        "ivy-league",
+        "ralph-lauren",
+        "americana"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "classic preppy American styling",
+        "clean-cut, confident casual demeanor"
+      ],
+      "MadeOutOf": [
+        "Navy Ralph Lauren wool blazer, gold buttons, single-breasted",
+        "Light blue Brooks Brothers oxford shirt, button-down collar",
+        "Stone-washed Levi's 501 jeans, classic straight leg",
+        "Burgundy Bass Weejuns penny loafers, polished leather",
+        "Striped grosgrain belt in navy and burgundy"
+      ],
+      "Arrangement": "Classic preppy stance with hands casually in pockets, shoulders relaxed, confident casual posture",
+      "RoomObjects": [],
+      "Accessories": [
+        "visible belt buckle",
+        "penny visible in loafer slot"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "navy blazer as dominant color",
+        "light blue shirt visible at collar and cuffs",
+        "burgundy accents from shoes and belt",
+        "stone-wash denim mid-tone"
+      ],
+      "Mood": "confident, classic, all-American ease"
+    },
+    {
+      "label": "1982-early-hip-hop-electro",
+      "year": 1982,
+      "tags": [
+        "hip-hop",
+        "electro",
+        "new-york",
+        "b-boy",
+        "adidas"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "early hip-hop/electro styling",
+        "Cazal 607 sunglasses in gold and tortoise with clear lenses"
+      ],
+      "MadeOutOf": [
+        "Adidas Superstar tracksuit in royal blue with white triple stripes, zip-up jacket",
+        "White leather Kangol bucket hat, signature kangaroo logo",
+        "White cotton turtleneck underneath tracksuit",
+        "Adidas Superstar sneakers in white with black stripes, shell toe, fat gold laces",
+        "Thick gold rope chain, chunky links, 24-inch length"
+      ],
+      "Arrangement": "B-boy stance with arms crossed, slight lean back, Kangol bucket hat pulled low, classic hip-hop attitude",
+      "RoomObjects": [],
+      "Accessories": [
+        "gold rope chain prominently displayed",
+        "Cazal 607 glasses on face",
+        "fat gold laces visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "royal blue tracksuit as dominant color",
+        "white stripes on tracksuit crisp and clean",
+        "gold accents from chain and laces",
+        "white sneakers bright against blue"
+      ],
+      "Mood": "confident, street swagger, electro-funk energy"
+    },
+    {
+      "label": "1983-buffalo-streetwear-pioneer",
+      "year": 1983,
+      "tags": [
+        "buffalo",
+        "streetwear",
+        "london",
+        "punk",
+        "katharine-hamnett"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Buffalo/streetwear pioneer styling",
+        "rebellious stance with punk attitude"
+      ],
+      "MadeOutOf": [
+        "Katharine Hamnett oversized slogan tee '58% DON'T WANT PERSHING', white cotton, bold black print",
+        "Vivienne Westwood 'Witches' collection bondage trousers in black cotton, zips and straps",
+        "Dr. Martens 1460 boots in oxblood cherry red, yellow stitching, 8-eye",
+        "Vintage MA-1 bomber jacket in sage green nylon, orange lining visible at collar",
+        "Thick black leather belt with oversized silver buckle"
+      ],
+      "Arrangement": "Brooding stance with arms at sides, shoulders slightly hunched forward, defiant post-punk demeanor",
+      "RoomObjects": [],
+      "Accessories": [
+        "spiked dog collar worn as bracelet with silver studs",
+        "oversized silver belt buckle"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "white oversized tee with bold black text",
+        "sage green bomber as accent",
+        "black bondage trousers with silver hardware",
+        "oxblood red boots as color pop"
+      ],
+      "Mood": "rebellious, politically charged, streetwear origins"
+    },
+    {
+      "label": "1984-japanese-avant-garde",
+      "year": 1984,
+      "tags": [
+        "japanese-avant-garde",
+        "yohji-yamamoto",
+        "comme-des-garcons",
+        "deconstructed"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Japanese avant-garde minimalist styling",
+        "composed, enigmatic presence"
+      ],
+      "MadeOutOf": [
+        "Oversized black Yohji Yamamoto wool blazer with deconstructed shoulders and extended sleeves covering hands",
+        "White asymmetric Comme des Garçons shirt with unusual collar and drape",
+        "Charcoal grey Issey Miyake pleated wide-leg trousers",
+        "Minimal black leather shoes, clean silhouette"
+      ],
+      "Arrangement": "Asymmetric stance with weight shifted to one side, hands disappearing into oversized sleeves, minimalist composure",
+      "RoomObjects": [],
+      "Accessories": [
+        "sleeves intentionally covering hands"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black blazer as dominant dark mass",
+        "white asymmetric shirt creating contrast",
+        "charcoal grey trousers mid-tone",
+        "monochromatic palette, no bright colors"
+      ],
+      "Mood": "intellectual, minimalist, quietly radical"
+    },
+    {
+      "label": "1985-miami-vice-influence",
+      "year": 1985,
+      "tags": [
+        "miami-vice",
+        "armani",
+        "pastel",
+        "italian"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Miami Vice influenced styling",
+        "relaxed sophistication, sun-kissed confidence"
+      ],
+      "MadeOutOf": [
+        "Pale pink unstructured Armani linen blazer, soft shoulders, natural drape",
+        "White cotton t-shirt underneath, crew neck",
+        "White linen trousers, relaxed fit, pleated front",
+        "White Gucci horsebit loafers worn sockless",
+        "Gold aviator sunglasses pushed up on head"
+      ],
+      "Arrangement": "Relaxed casual stance with jacket pushed back, one hand casually in pocket, Miami cool confidence",
+      "RoomObjects": [],
+      "Accessories": [
+        "gold aviator sunglasses on head",
+        "visible sockless ankle"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "pale pink blazer as soft accent",
+        "white-on-white tonal layering from t-shirt, trousers, shoes",
+        "gold aviators as warm metallic accent",
+        "skin tone warmth visible at ankles"
+      ],
+      "Mood": "effortless cool, Mediterranean ease, aspirational"
+    },
+    {
+      "label": "1986-skateboard-culture",
+      "year": 1986,
+      "tags": [
+        "skate",
+        "thrasher",
+        "vans",
+        "california"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "mid-80s skateboard culture styling",
+        "California casual energy"
+      ],
+      "MadeOutOf": [
+        "Faded black Thrasher t-shirt with flame logo",
+        "Grey Independent Trucks hoodie worn with hood out underneath",
+        "Dark indigo Levi's 501 jeans with rolled cuffs showing selvedge",
+        "Navy Vans Half Cab sneakers, worn suede",
+        "Wallet chain hanging from belt loop"
+      ],
+      "Arrangement": "Skater stance with feet shoulder-width apart, arms loose at sides, California casual energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "wallet chain visible",
+        "rolled jean cuffs showing selvedge edge"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "faded black tee with yellow and red flame logo",
+        "grey hoodie as mid-tone layer",
+        "dark indigo denim as anchor",
+        "navy sneakers complementing denim"
+      ],
+      "Mood": "relaxed rebellion, west coast ease, DIY authenticity"
+    },
+    {
+      "label": "1987-early-acid-house",
+      "year": 1987,
+      "tags": [
+        "acid-house",
+        "smiley-face",
+        "rave",
+        "summer-of-love"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "early acid house styling",
+        "euphoric dance-ready energy"
+      ],
+      "MadeOutOf": [
+        "Bright yellow smiley face t-shirt, iconic acid house graphic",
+        "Light wash Levi's 501 jeans, relaxed fit, slightly baggy",
+        "Blue Adidas Gazelle sneakers, worn-in suede",
+        "Pale denim bucket hat, sun-faded",
+        "Yellow-tinted aviator sunglasses"
+      ],
+      "Arrangement": "Playful dance-ready stance with arms beginning to rise, body suggesting movement, acid house energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "colorful friendship bracelets on wrists",
+        "yellow-tinted glasses on face"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "bright yellow smiley tee as dominant pop",
+        "light wash denim as neutral base",
+        "blue sneakers complementing denim",
+        "yellow tint from sunglasses echoing tee"
+      ],
+      "Mood": "euphoric, carefree, psychedelic optimism"
+    },
+    {
+      "label": "1988-second-summer-of-love",
+      "year": 1988,
+      "tags": [
+        "rave",
+        "stone-island",
+        "second-summer-of-love",
+        "uk"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Second Summer of Love rave styling",
+        "euphoric celebration energy"
+      ],
+      "MadeOutOf": [
+        "Iridescent Stone Island ice jacket with compass badge, color-shifting fabric",
+        "Oversized white t-shirt underneath, relaxed fit",
+        "Baggy mid-blue jeans, comfortable fit",
+        "White Reebok Classic sneakers, clean leather",
+        "Ray-Ban Clubmaster sunglasses",
+        "Neon yellow Casio G-Shock watch"
+      ],
+      "Arrangement": "Open arms pose suggesting rave euphoria, head slightly tilted up, positive energy radiating",
+      "RoomObjects": [],
+      "Accessories": [
+        "Stone Island compass badge visible on sleeve",
+        "G-Shock watch prominent on wrist"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "iridescent jacket showing color shift",
+        "white tee and sneakers bright",
+        "mid-blue denim as grounding tone",
+        "neon yellow G-Shock as accent"
+      ],
+      "Mood": "euphoric, communal joy, hedonistic freedom"
+    },
+    {
+      "label": "1989-late-80s-maximalism",
+      "year": 1989,
+      "tags": [
+        "versace",
+        "maximalism",
+        "italian",
+        "baroque"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "late 80s Italian maximalism styling",
+        "bold, unapologetic confidence"
+      ],
+      "MadeOutOf": [
+        "Bold Versace baroque print silk shirt with gold and black pattern, open at collar",
+        "High-waisted black wool trousers with sharp crease",
+        "Black leather belt with oversized gold Versace medusa buckle",
+        "Black Gucci horsebit loafers, high polish",
+        "Multiple layered gold chains of varying lengths"
+      ],
+      "Arrangement": "Power stance with chest out, one hand adjusting collar, Italian maximalist confidence",
+      "RoomObjects": [],
+      "Accessories": [
+        "gold chains layered prominently",
+        "oversized gold Versace buckle"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "gold and black baroque print as statement",
+        "black trousers as grounding anchor",
+        "gold hardware throughout as unifying accent",
+        "silk sheen catching light"
+      ],
+      "Mood": "opulent, powerful, unapologetic excess"
+    },
+    {
+      "label": "1990-grunge",
+      "year": 1990,
+      "tags": [
+        "grunge",
+        "seattle",
+        "nirvana",
+        "anti-fashion"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Seattle grunge styling",
+        "apathetic, anti-fashion demeanor"
+      ],
+      "MadeOutOf": [
+        "Oversized red and black flannel shirt worn open, heavy cotton",
+        "Faded black Nirvana t-shirt underneath, worn soft",
+        "Ripped dark indigo Levi's 501 jeans with natural distressing",
+        "Scuffed Dr. Martens 1461 shoes, well-worn leather",
+        "Striped sweater tied around waist"
+      ],
+      "Arrangement": "Slouched anti-fashion stance, hands deep in pockets, shoulders hunched forward expressing grunge apathy",
+      "RoomObjects": [],
+      "Accessories": [
+        "sweater knotted at waist",
+        "natural jean rips visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "red and black plaid as dominant pattern",
+        "faded black tee muted underneath",
+        "dark indigo denim as anchor",
+        "overall muted, lived-in palette"
+      ],
+      "Mood": "disaffected, deliberately unkempt, authentic decay"
+    },
+    {
+      "label": "1991-uk-rave-culture-peak",
+      "year": 1991,
+      "tags": [
+        "rave",
+        "uk",
+        "manchester",
+        "joe-bloggs",
+        "kickers"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "UK rave culture peak styling",
+        "euphoric festival energy"
+      ],
+      "MadeOutOf": [
+        "Oversized Global Hypercolor tee in purple-to-pink reactive colorway, baggy fit",
+        "Joe Bloggs super-wide flare jeans in stonewash denim, 26-inch hem, high-waisted",
+        "Kickers hi-top boots in tan suede, chunky rubber sole",
+        "Kappa Banda tracksuit top in white with red and blue side stripes, unzipped",
+        "White bucket hat, floppy cotton canvas, wide brim"
+      ],
+      "Arrangement": "Energetic rave pose with one arm raised, body turned slightly, festival energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "smiley face badge pinned to jacket",
+        "whistles on cord around neck"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "purple-to-pink hypercolor tee as statement",
+        "stonewash denim as 90s base",
+        "white and red Kappa stripes",
+        "tan suede Kickers grounding"
+      ],
+      "Mood": "euphoric, hedonistic, collective joy"
+    },
+    {
+      "label": "1992-minimalism",
+      "year": 1992,
+      "tags": [
+        "minimalism",
+        "helmut-lang",
+        "essential",
+        "restraint"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "early 90s minimalism styling",
+        "composed, restrained presence"
+      ],
+      "MadeOutOf": [
+        "Razor-sharp black Helmut Lang wool trousers, slim cut, perfect drape",
+        "White Hanes crew neck t-shirt, essential cotton, perfect fit",
+        "Thin black leather belt with minimal silver buckle",
+        "White Common Projects Achilles Low sneakers, immaculate leather",
+        "Simple silver ring on right hand"
+      ],
+      "Arrangement": "Perfect centered posture with arms precisely at sides, embodying minimalist restraint and precision",
+      "RoomObjects": [],
+      "Accessories": [
+        "single silver ring visible on hand"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black trousers as primary dark element",
+        "white tee bright against skin",
+        "white sneakers echoing tee",
+        "silver minimal accents only"
+      ],
+      "Mood": "restrained elegance, intellectual rigor, less is more"
+    },
+    {
+      "label": "1993-wu-tang-east-coast-hip-hop",
+      "year": 1993,
+      "tags": [
+        "wu-tang",
+        "hip-hop",
+        "new-york",
+        "timberland",
+        "carhartt"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Wu-Tang/East Coast hip-hop styling",
+        "Staten Island street confidence"
+      ],
+      "MadeOutOf": [
+        "Wu-Tang Clan 'Wu-Wear' black hoodie, oversized fit, gold W logo embroidery",
+        "Carhartt double-knee work pants in brown duck canvas, extremely baggy fit",
+        "Timberland 6-inch Premium boots in wheat nubuck, chunky sole, worn loose with unlaced top",
+        "Black fitted cap worn backwards, no logo",
+        "Oversized black down jacket, North Face Nuptse in matte black"
+      ],
+      "Arrangement": "Hip-hop stance with slight lean, arms crossed, 90s swagger confidence",
+      "RoomObjects": [],
+      "Accessories": [
+        "Cazal 858 sunglasses in gold and black, oversized rectangular frames"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black hoodie with gold Wu embroidery",
+        "brown Carhartt canvas as earth tone",
+        "wheat Timberlands as iconic accent",
+        "black Nuptse layered over black"
+      ],
+      "Mood": "street authority, Staten Island grit, golden era swagger"
+    },
+    {
+      "label": "1994-britpop",
+      "year": 1994,
+      "tags": [
+        "britpop",
+        "fred-perry",
+        "oasis",
+        "mod-revival"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Britpop styling",
+        "casual mod attitude, working-class swagger"
+      ],
+      "MadeOutOf": [
+        "Sky blue Fred Perry polo with twin tipping in navy and white",
+        "Mid-blue Levi's 501 jeans, classic fit",
+        "Navy Baracuta G9 Harrington jacket with tartan lining visible",
+        "Red Adidas Gazelle sneakers, worn suede",
+        "Aviator sunglasses, gold frames"
+      ],
+      "Arrangement": "Casual mod stance with hands in jacket pockets, chin slightly raised with Britpop attitude",
+      "RoomObjects": [],
+      "Accessories": [
+        "aviator sunglasses on face",
+        "tartan lining visible at collar"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "sky blue polo as primary color",
+        "navy Harrington as classic anchor",
+        "mid-blue denim complementing polo",
+        "red Gazelles as Manchester accent"
+      ],
+      "Mood": "confident swagger, working-class pride, British cool"
+    },
+    {
+      "label": "1995-techno-clubwear",
+      "year": 1995,
+      "tags": [
+        "techno",
+        "clubwear",
+        "helmut-lang",
+        "cyberpunk"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "mid-90s techno clubwear styling",
+        "futuristic edge, rave ready"
+      ],
+      "MadeOutOf": [
+        "Metallic silver Helmut Lang technical shirt with futuristic sheen",
+        "Black tactical cargo pants with multiple pockets",
+        "Neon Nike Air Max 95 sneakers in neon yellow and black",
+        "Oakley Juliet X-Metal sunglasses with iridescent lens",
+        "Silver chain necklace, medium weight"
+      ],
+      "Arrangement": "Futuristic stance with body angled, one arm across chest, cyberpunk edge",
+      "RoomObjects": [],
+      "Accessories": [
+        "black leather wrist cuff",
+        "Oakley X-Metal frames prominent"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "metallic silver shirt catching light",
+        "black cargo pants as tactical base",
+        "neon yellow Air Max 95 as statement",
+        "silver accessories echoing shirt"
+      ],
+      "Mood": "futuristic, underground, technological transcendence"
+    },
+    {
+      "label": "1996-hip-hop-maximalism-bad-boy",
+      "year": 1996,
+      "tags": [
+        "hip-hop",
+        "bad-boy",
+        "tommy-hilfiger",
+        "versace",
+        "new-york"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Hip-Hop Maximalism/Bad Boy era styling",
+        "shiny suit era confidence"
+      ],
+      "MadeOutOf": [
+        "Tommy Hilfiger sailing jacket in red/white/blue colorblock, oversized, large logo across chest",
+        "Karl Kani baggy jeans in dark indigo, embroidered back pocket, 34-inch leg opening",
+        "Nike Air Max 96 in white/black/concord purple, visible full-length Air unit",
+        "White ribbed tank top underneath jacket",
+        "Kangol bermuda casual bucket hat in black wool"
+      ],
+      "Arrangement": "Confident hip-hop stance, chest out, arms relaxed at sides, Bad Boy swagger",
+      "RoomObjects": [],
+      "Accessories": [
+        "Versace gold medusa pendant on thick gold rope chain"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "red/white/blue Tommy colorblock as statement",
+        "dark indigo Karl Kani denim",
+        "white/black/purple Air Max",
+        "gold Versace chain as luxury accent"
+      ],
+      "Mood": "triumphant, aspirational, hip-hop royalty"
+    },
+    {
+      "label": "1997-minimalist-tailoring",
+      "year": 1997,
+      "tags": [
+        "minimalism",
+        "prada",
+        "jil-sander",
+        "tailoring"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "late 90s minimalist tailoring",
+        "refined, understated elegance"
+      ],
+      "MadeOutOf": [
+        "Black Prada wool suit with single-button notch lapel and slim cut",
+        "White Jil Sander poplin shirt with spread collar and French cuffs",
+        "Black Prada cap toe oxford shoes with high shine",
+        "Black Hermès belt with simple silver buckle",
+        "Geometric silver cufflinks"
+      ],
+      "Arrangement": "Refined formal stance with hands clasped in front, embodying minimalist elegance",
+      "RoomObjects": [],
+      "Accessories": [
+        "silver cufflinks visible at cuff",
+        "minimal silver belt buckle"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black suit as sophisticated anchor",
+        "white shirt crisp at collar and cuffs",
+        "high-shine black shoes reflecting light",
+        "silver accents only, no gold"
+      ],
+      "Mood": "intellectual elegance, quiet luxury, refined restraint"
+    },
+    {
+      "label": "1998-nu-metal-wide-leg",
+      "year": 1998,
+      "tags": [
+        "nu-metal",
+        "jnco",
+        "deftones",
+        "wide-leg"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "nu-metal/wide leg era styling",
+        "aggressive alternative energy"
+      ],
+      "MadeOutOf": [
+        "Extremely wide 23-inch leg opening JNCO jeans in dark denim with embroidered pockets pooling at ground",
+        "Oversized white Deftones 'Around The Fur' band t-shirt, cat graphic print, vintage tour merch",
+        "White Adidas Superstar sneakers hidden under massive jean hems",
+        "Silver chain wallet hanging to knee",
+        "Multiple rubber wristbands stacked on both arms"
+      ],
+      "Arrangement": "Wide stance to show massive JNCO leg opening, arms spread slightly, nu-metal attitude",
+      "RoomObjects": [],
+      "Accessories": [
+        "chain wallet prominently hanging",
+        "stacked rubber wristbands visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "dark denim JNCO jeans with embroidery",
+        "white oversized Deftones tee with graphic",
+        "white sneakers barely visible under hems",
+        "silver chain as accent"
+      ],
+      "Mood": "aggressive, rebellious, suburban angst"
+    },
+    {
+      "label": "1999-y2k-futurism",
+      "year": 1999,
+      "tags": [
+        "y2k",
+        "futurism",
+        "prada-sport",
+        "millennium"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Y2K futurism styling",
+        "millennium tech optimism"
+      ],
+      "MadeOutOf": [
+        "Silver Prada Sport nylon jacket with technical fabric and red line detail",
+        "White mesh jersey top underneath",
+        "Dark indigo low-rise Diesel bootcut jeans with orange stitching",
+        "Silver Prada America's Cup sneakers with red line detail",
+        "Wraparound Oakley Over The Top sunglasses with iridescent lens"
+      ],
+      "Arrangement": "Tech-forward pose with hand near face as if using invisible device, futuristic gesture",
+      "RoomObjects": [],
+      "Accessories": [
+        "Nokia 3210 phone in hand"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "silver Prada Sport nylon reflecting light",
+        "red line detail as accent",
+        "dark indigo Diesel denim with orange thread",
+        "silver sneakers matching jacket"
+      ],
+      "Mood": "tech optimism, millennium fever, digital future"
+    },
+    {
+      "label": "2000-logomania",
+      "year": 2000,
+      "tags": [
+        "logomania",
+        "louis-vuitton",
+        "gucci",
+        "maximalist-branding"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "peak logomania styling",
+        "conspicuous consumption confidence"
+      ],
+      "MadeOutOf": [
+        "Louis Vuitton monogram canvas jacket with all-over LV print",
+        "Indigo Dolce & Gabbana jeans with D&G logo repeat pattern",
+        "Large Gucci interlocking GG belt buckle, oversized hardware",
+        "Chunky Louis Vuitton Millionaire sunglasses with gold hardware and logo on temples"
+      ],
+      "Arrangement": "Logo display pose with body angled to show all branding, arms positioned to reveal details",
+      "RoomObjects": [],
+      "Accessories": [
+        "LV Millionaire sunglasses on face",
+        "oversized GG buckle centered"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "brown LV monogram pattern as dominant",
+        "indigo D&G denim with logo pattern",
+        "gold hardware throughout as accent",
+        "no solid colors, all logo-covered"
+      ],
+      "Mood": "conspicuous, status-driven, logo worship"
+    },
+    {
+      "label": "2001-nu-metal-y2k-street",
+      "year": 2001,
+      "tags": [
+        "nu-metal",
+        "y2k",
+        "los-angeles",
+        "jnco",
+        "osiris"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Nu-Metal/Y2K street styling",
+        "LA aggro energy"
+      ],
+      "MadeOutOf": [
+        "JNCO Criminal 50-inch wide leg jeans in black denim, massive embroidered crown logo on back pocket",
+        "Korn 'Follow The Leader' vintage tour tee in black, oversized, distressed print",
+        "Osiris D3 2001 skate shoes in black/white/gum, chunky platform sole, visible air cushion",
+        "Chrome ball chain necklace, thick gauge, worn loose",
+        "Red fitted cap worn backwards, no logo, frayed brim"
+      ],
+      "Arrangement": "Nu-metal stance with wide leg positioning, arms loose, LA skatepunk attitude",
+      "RoomObjects": [],
+      "Accessories": [
+        "black leather wristband with silver studs",
+        "chrome ball chain prominent"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black JNCO jeans pooling at floor",
+        "black Korn tee with distressed print",
+        "chunky black/white Osiris shoes",
+        "chrome and silver hardware accents"
+      ],
+      "Mood": "aggressive, skate-metal hybrid, suburban rebellion"
+    },
+    {
+      "label": "2002-indie-sleaze",
+      "year": 2002,
+      "tags": [
+        "indie-sleaze",
+        "hedi-slimane",
+        "dior-homme",
+        "rock"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "indie sleaze styling",
+        "rock and roll thinness, downtown cool"
+      ],
+      "MadeOutOf": [
+        "Extremely slim black Hedi Slimane Dior Homme blazer with 15-inch shoulders and cropped sleeves",
+        "Heather grey American Apparel deep V-neck t-shirt showing collarbone",
+        "Ultra-tight Cheap Monday black skinny jeans with 11-inch leg opening",
+        "Beaten-up black Converse Chuck Taylor low-tops",
+        "Thin black leather belt worn low"
+      ],
+      "Arrangement": "Casual slouch with hip cocked, hand barely fitting in tight pocket, indie rock nonchalance",
+      "RoomObjects": [],
+      "Accessories": [
+        "multiple thin leather bracelets on wrist"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black blazer extremely slim silhouette",
+        "heather grey deep V creating contrast",
+        "black skinny jeans as extreme slim anchor",
+        "worn black Converse muted"
+      ],
+      "Mood": "studied cool, heroin-chic redux, downtown decadence"
+    },
+    {
+      "label": "2003-skate-punk",
+      "year": 2003,
+      "tags": [
+        "skate-punk",
+        "dc-shoes",
+        "dickies",
+        "warped-tour"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "skate punk styling",
+        "pop-punk energy, Warped Tour ready"
+      ],
+      "MadeOutOf": [
+        "Worn black Volcom stone logo t-shirt",
+        "Khaki Dickies 874 work pants worn low and slightly baggy",
+        "Black DC Shoes Court Graffik with puffy tongue and chunky silhouette",
+        "Black and white Vans checkered belt",
+        "Studded leather belt worn over checkered belt"
+      ],
+      "Arrangement": "Skate stance with feet wide, knees slightly bent, arms loose, punk energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "beanie worn high on head",
+        "layered belts visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black Volcom tee as base",
+        "khaki Dickies as skate staple",
+        "black and white checkered belt pattern",
+        "chunky black DC shoes"
+      ],
+      "Mood": "rebellious energy, suburban escape, punk-adjacent"
+    },
+    {
+      "label": "2004-hipster-aesthetic",
+      "year": 2004,
+      "tags": [
+        "hipster",
+        "brooklyn",
+        "american-apparel",
+        "apc"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "early hipster aesthetic styling",
+        "Williamsburg intellectual cool"
+      ],
+      "MadeOutOf": [
+        "Burgundy American Apparel tri-blend fitted t-shirt",
+        "Unwashed indigo A.P.C. New Standard raw selvedge jeans with slim straight leg",
+        "Amber Red Wing Heritage Iron Ranger boots with cap toe",
+        "Brown vintage leather satchel",
+        "Tortoiseshell Ray-Ban Clubmaster sunglasses"
+      ],
+      "Arrangement": "Thoughtful pose with hand on chin, intellectual hipster contemplation",
+      "RoomObjects": [],
+      "Accessories": [
+        "Timex Weekender watch on NATO strap",
+        "vintage satchel over shoulder"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "burgundy tee as color accent",
+        "raw indigo selvedge denim deep blue",
+        "amber leather from boots and satchel",
+        "tortoiseshell as warm accent"
+      ],
+      "Mood": "studied authenticity, Brooklyn intellectual, artisanal appreciation"
+    },
+    {
+      "label": "2005-emo-scene",
+      "year": 2005,
+      "tags": [
+        "emo",
+        "scene",
+        "my-chemical-romance",
+        "tripp-nyc"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "emo/scene styling",
+        "emotional vulnerability, suburban darkness"
+      ],
+      "MadeOutOf": [
+        "Tight black My Chemical Romance band t-shirt",
+        "Black Tripp NYC bondage pants with red tartan panels and chains connecting legs",
+        "Black and white checkered Converse Chuck Taylor high-tops",
+        "Black studded belt with excess hanging",
+        "Multiple black and colored rubber bracelets stacked high on wrists"
+      ],
+      "Arrangement": "Emo pose with head tilted down, body language suggesting vulnerability",
+      "RoomObjects": [],
+      "Accessories": [
+        "black nail polish visible on nails",
+        "chain between leg loops visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black as dominant color throughout",
+        "red tartan panels as accent",
+        "checkered Converse pattern",
+        "colored rubber bracelets as small pops"
+      ],
+      "Mood": "emotional intensity, theatrical darkness, vulnerable defiance"
+    },
+    {
+      "label": "2006-kanye-graduation-era",
+      "year": 2006,
+      "tags": [
+        "kanye",
+        "bape",
+        "louis-vuitton",
+        "hip-hop-fashion"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Kanye Graduation era styling",
+        "preppy hip-hop fusion"
+      ],
+      "MadeOutOf": [
+        "Green camo BAPE shark hoodie with full-zip shark face",
+        "White BAPE college logo t-shirt underneath",
+        "Dark indigo slim straight A.P.C. jeans cuffed to show stitching",
+        "White and red Louis Vuitton Jaspers high-top sneakers with LV monogram detail",
+        "Gold aviator sunglasses"
+      ],
+      "Arrangement": "Confident stance with one hand adjusting sunglasses on head, Kanye-era swagger",
+      "RoomObjects": [],
+      "Accessories": [
+        "grey Herschel backpack visible",
+        "gold aviators on head"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "green camo BAPE shark hoodie pattern",
+        "white and red LV Jaspers",
+        "dark indigo cuffed denim",
+        "gold aviators as accent"
+      ],
+      "Mood": "confident evolution, high-low fusion, cultural crossover"
+    },
+    {
+      "label": "2007-tumblr-menswear",
+      "year": 2007,
+      "tags": [
+        "tumblr",
+        "menswear",
+        "thom-browne",
+        "prep-revival"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Tumblr menswear styling",
+        "shrunken proportions, intentional sock break"
+      ],
+      "MadeOutOf": [
+        "Cropped grey Thom Browne wool blazer hitting above hip with four buttons and tricolor grosgrain tab",
+        "White fitted oxford shirt with collar bar",
+        "Grey Thom Browne cropped wool trousers showing ankle with visible striped socks",
+        "Burgundy Alden longwing bluchers in shell cordovan",
+        "Navy knit tie with square end"
+      ],
+      "Arrangement": "Preppy formal stance with hands clasped, showing intentional sock break from cropped trousers",
+      "RoomObjects": [],
+      "Accessories": [
+        "collar bar visible through tie",
+        "tricolor grosgrain tab on jacket"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "grey Thom Browne suit as base",
+        "white oxford shirt crisp",
+        "burgundy shell cordovan as accent",
+        "navy tie and striped socks"
+      ],
+      "Mood": "studied precision, internet menswear obsession, ironic formality"
+    },
+    {
+      "label": "2008-high-low-mix",
+      "year": 2008,
+      "tags": [
+        "high-low",
+        "balmain",
+        "saint-laurent",
+        "rock"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "high-low mix styling",
+        "rock star meets runway"
+      ],
+      "MadeOutOf": [
+        "Black Balmain leather biker jacket with quilted shoulders and gold hardware from Pierre Balmain era",
+        "Grey Alexander Wang classic pocket t-shirt in slub jersey",
+        "Black A.P.C. Petit Standard slim jeans",
+        "Black Saint Laurent Jodhpur boots with harness detail and stacked heel",
+        "Black Ray-Ban Wayfarer sunglasses"
+      ],
+      "Arrangement": "Rock stance with weight on one leg, hand on hip, high-low fashion attitude",
+      "RoomObjects": [],
+      "Accessories": [
+        "Wayfarer sunglasses on face",
+        "gold hardware visible on jacket"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black leather jacket as statement",
+        "grey slub jersey tee",
+        "black slim jeans as base",
+        "gold hardware as accent"
+      ],
+      "Mood": "rock aristocracy, luxury rebellion, effortless edge"
+    },
+    {
+      "label": "2009-streetwear-luxury-emerging",
+      "year": 2009,
+      "tags": [
+        "streetwear",
+        "supreme",
+        "rick-owens",
+        "emerging-hype"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "streetwear luxury emerging styling",
+        "underground-meets-runway"
+      ],
+      "MadeOutOf": [
+        "Grey Supreme box logo hoodie with classic embroidered logo",
+        "Waxed black Rick Owens DRKSHDW Detroit jeans with drop crotch and slim taper",
+        "Teal and black Nike Dunk High Pro SB 'Tiffany' from Diamond Supply collaboration",
+        "Black Supreme beanie",
+        "Black Chrome messenger bag with seatbelt buckle"
+      ],
+      "Arrangement": "Urban stance with one hand casually holding backpack strap, streetwear cool energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "medium weight gold chain layered"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "grey Supreme hoodie with red box logo",
+        "waxed black Rick Owens denim",
+        "teal and black Tiffany Dunks as statement",
+        "black accessories throughout"
+      ],
+      "Mood": "underground credibility, luxury streetwear genesis, collector mentality"
+    },
+    {
+      "label": "2010-heritage-americana",
+      "year": 2010,
+      "tags": [
+        "heritage",
+        "americana",
+        "filson",
+        "selvage",
+        "workwear"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "heritage Americana styling",
+        "rugged authenticity, made-in-USA obsession"
+      ],
+      "MadeOutOf": [
+        "Tan Filson Tin Cloth cruiser jacket with brass hardware and corduroy collar",
+        "Chambray Gitman Bros. Vintage work shirt in indigo, button-down collar, selvedge placket",
+        "Heavyweight 21oz Naked & Famous Elephant selvage denim, raw unwashed, heavy stacking at hem",
+        "Burgundy Wolverine 1000 Mile boots in Chromexcel leather, Goodyear welt",
+        "Brown Tanner Goods leather belt with solid brass roller buckle"
+      ],
+      "Arrangement": "Sturdy workman stance with thumbs hooked in belt, rugged American heritage posture",
+      "RoomObjects": [],
+      "Accessories": [
+        "Shinola Runwell watch with cream dial on leather strap",
+        "raw denim honeycombs visible at knees"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "tan Filson jacket as dominant warm tone",
+        "indigo chambray and raw denim layering",
+        "burgundy boots as grounding accent",
+        "brown leather and brass hardware throughout"
+      ],
+      "Mood": "rugged authenticity, artisan appreciation, buy-it-for-life ethos"
+    },
+    {
+      "label": "2011-drop-crotch-rick-owens",
+      "year": 2011,
+      "tags": [
+        "rick-owens",
+        "avant-garde",
+        "drop-crotch",
+        "goth-ninja"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Rick Owens drop crotch styling",
+        "goth ninja avant-garde"
+      ],
+      "MadeOutOf": [
+        "Rick Owens DRKSHDW Memphis jeans in dusty black denim, dropped crotch, tapered at ankle with extreme stacking",
+        "Grey Rick Owens elongated tank top with raw hem and draped silhouette",
+        "Black Rick Owens Geobasket high-top sneakers with extended tongue and chunky architectural sole",
+        "Oversized black waxed canvas tote",
+        "Rick Owens DRKSHDW oversized hooded parka in black cotton, massive draped hood falling down back, extended sleeves past hands"
+      ],
+      "Arrangement": "Avant-garde stance with legs positioned to show extreme drop crotch, arms away from body",
+      "RoomObjects": [],
+      "Accessories": [
+        "oversized tote visible at side"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black pod shorts with unusual silhouette",
+        "grey elongated tank creating length",
+        "black Geobaskets with architectural shape",
+        "monochromatic black and grey only"
+      ],
+      "Mood": "architectural darkness, avant-garde uniform, post-apocalyptic chic"
+    },
+    {
+      "label": "2012-pyrex-been-trill",
+      "year": 2012,
+      "tags": [
+        "pyrex",
+        "been-trill",
+        "virgil-abloh",
+        "hype-genesis"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Pyrex/Been Trill era styling",
+        "hype beast origins"
+      ],
+      "MadeOutOf": [
+        "Oversized red plaid Pyrex Vision flannel with large '23' and 'Pyrex' printed on back",
+        "Black Been Trill logo t-shirt underneath",
+        "Black jogger pants with tapered fit and elastic cuffs",
+        "Bright pink and black Nike Air Yeezy 2 'Solar Red' with glow sole",
+        "Black Supreme 5-panel cap with leather strap"
+      ],
+      "Arrangement": "Hypebeast stance with body turned to display back graphics, sneakers prominently visible",
+      "RoomObjects": [],
+      "Accessories": [
+        "chunky gold rope chain visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "red plaid Pyrex flannel as statement",
+        "black joggers as base",
+        "pink and black Air Yeezy 2 as grail",
+        "gold chain accent"
+      ],
+      "Mood": "hype genesis, DIY luxury, ironic appropriation"
+    },
+    {
+      "label": "2013-asap-mob-hood-by-air",
+      "year": 2013,
+      "tags": [
+        "asap-mob",
+        "hood-by-air",
+        "raf-simons",
+        "new-york",
+        "harlem"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "A$AP Mob/Hood By Air era styling",
+        "Harlem avant-garde streetwear"
+      ],
+      "MadeOutOf": [
+        "Hood By Air long-sleeve tee in black, oversized, distressed gothic print",
+        "Rick Owens DRKSHDW Detroit cut jeans in black wax denim, geometric knee articulation",
+        "Raf Simons x Adidas Stan Smith in white/red, perforated R logo",
+        "Givenchy Rottweiler print silk scarf worn around neck",
+        "Black leather five-panel cap, extended brim"
+      ],
+      "Arrangement": "A$AP stance with relaxed lean, arms loose, Harlem cool confidence",
+      "RoomObjects": [],
+      "Accessories": [
+        "chrome Cuban link chain layered with longer pendant chain"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black HBA tee with distressed print",
+        "black wax denim with shine",
+        "white/red Raf Stan Smiths",
+        "Rottweiler print as statement detail"
+      ],
+      "Mood": "Harlem avant-garde, Fashion Killa energy, cultural convergence"
+    },
+    {
+      "label": "2014-athleisure",
+      "year": 2014,
+      "tags": [
+        "athleisure",
+        "nike-tech-fleece",
+        "alexander-wang",
+        "sport-luxe"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "athleisure styling",
+        "gym-to-street luxury"
+      ],
+      "MadeOutOf": [
+        "Grey heather Nike Tech Fleece joggers with zip pockets",
+        "Black semi-transparent Alexander Wang x H&M mesh jersey in muscle fit",
+        "Multicolor Nike Flyknit Racer 'Rainbow' with lightweight knit upper",
+        "Black Herschel Supply backpack",
+        "Beats by Dre wireless headphones around neck"
+      ],
+      "Arrangement": "Athletic stance suggesting movement or stretching, modern active lifestyle",
+      "RoomObjects": [],
+      "Accessories": [
+        "space grey Apple Watch on wrist",
+        "Beats headphones around neck"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "grey tech fleece joggers",
+        "black mesh jersey semi-transparent",
+        "rainbow Flyknit as color statement",
+        "black accessories throughout"
+      ],
+      "Mood": "performative wellness, tech-enabled lifestyle, aspirational fitness"
+    },
+    {
+      "label": "2015-yeezy-season",
+      "year": 2015,
+      "tags": [
+        "yeezy",
+        "kanye",
+        "earth-tones",
+        "distressed"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Yeezy Season styling",
+        "post-apocalyptic minimalism"
+      ],
+      "MadeOutOf": [
+        "Sand-colored Yeezy Season 1 oversized sweatshirt with extreme dropped shoulders and distressed hem",
+        "Olive green Yeezy Season 1 military pants with tapered fit and cargo pockets",
+        "Original colorway Adidas Yeezy Boost 350 'Turtle Dove' with primeknit upper and rope laces",
+        "Sage Rothco MA-1 flight jacket"
+      ],
+      "Arrangement": "Minimalist Kanye-inspired pose with arms at sides, neutral expression, earth tone aesthetic",
+      "RoomObjects": [],
+      "Accessories": [
+        "distressed hem details visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "sand/beige oversized sweatshirt",
+        "olive green military pants",
+        "grey Turtle Dove 350s",
+        "earth tone palette throughout"
+      ],
+      "Mood": "apocalyptic calm, desert warrior, prophetic minimalism"
+    },
+    {
+      "label": "2016-fear-of-god-elongated",
+      "year": 2016,
+      "tags": [
+        "fear-of-god",
+        "jerry-lorenzo",
+        "elongated",
+        "california-luxury",
+        "kanye-adjacent"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Fear of God/Jerry Lorenzo era styling",
+        "California luxury streetwear"
+      ],
+      "MadeOutOf": [
+        "Camel Fear of God fourth collection overcoat in wool-cashmere blend, dropped shoulders, elongated length past knee",
+        "Black Fear of God elongated t-shirt with side-zip detail, curved hem hitting mid-thigh",
+        "Black Fear of God drawstring trousers with zip ankle, relaxed tapered fit",
+        "Grey Common Projects Achilles Low sneakers in nubuck suede",
+        "Cream waffle-knit Fear of God tank layered underneath showing at hem"
+      ],
+      "Arrangement": "Relaxed California stance with hands in overcoat pockets, elongated layering visible, understated luxury confidence",
+      "RoomObjects": [],
+      "Accessories": [
+        "gold Cuban link chain tucked under layers",
+        "cream tank hem visible beneath black tee"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "camel wool overcoat as warm dominant tone",
+        "black elongated layers underneath",
+        "grey suede sneakers as neutral base",
+        "cream tank as subtle layering accent"
+      ],
+      "Mood": "understated flex, California minimalism, spiritual streetwear"
+    },
+    {
+      "label": "2017-vetements-demna-streetwear",
+      "year": 2017,
+      "tags": [
+        "vetements",
+        "demna",
+        "dhl",
+        "balenciaga",
+        "paris"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Vetements/Demna-era streetwear styling",
+        "ironic corporate luxury"
+      ],
+      "MadeOutOf": [
+        "Vetements x DHL yellow courier hoodie, oversized fit, massive hood, printed branding",
+        "Balenciaga Triple S sneakers in white/grey/red colorway, chunky distressed sole, oversized silhouette",
+        "Gosha Rubchinskiy x Adidas track pants in black with white stripes, tapered leg",
+        "Off-White industrial belt in yellow, hanging loose with long trailing end",
+        "Black fitted cap with minimal branding"
+      ],
+      "Arrangement": "Demna stance with relaxed oversized silhouette, ironic corporate cool",
+      "RoomObjects": [],
+      "Accessories": [
+        "Chrome Hearts plus earring in left ear, chunky cross design"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "DHL yellow hoodie as ironic statement",
+        "black Gosha track pants with white stripes",
+        "white/grey/red Triple S chunky sneakers",
+        "yellow belt echoing hoodie"
+      ],
+      "Mood": "ironic appropriation, post-Soviet luxury, corporate subversion"
+    },
+    {
+      "label": "2018-gender-fluid-alessandro-michele",
+      "year": 2018,
+      "tags": [
+        "gucci",
+        "alessandro-michele",
+        "gender-fluid",
+        "maximalism"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Alessandro Michele gender-fluid styling",
+        "romantic maximalism"
+      ],
+      "MadeOutOf": [
+        "Oversized Gucci floral embroidered cardigan with mixed patterns and gender-neutral sizing from Alessandro Michele era",
+        "Vintage-effect Gucci logo t-shirt with distressed graphics",
+        "Mid-blue Acne Studios Blå Konst denim with straight wide leg and raw hem in unisex cut",
+        "Floral brocade Gucci Princetown backless loafers with fur lining",
+        "Multiple pearl necklaces in mixed lengths"
+      ],
+      "Arrangement": "Gender-fluid pose with relaxed posture, one hand on hip, transcending traditional masculine stance",
+      "RoomObjects": [],
+      "Accessories": [
+        "oversized Gentle Monster geometric sculptural sunglasses",
+        "layered pearl necklaces"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "floral embroidered cardigan with mixed colors",
+        "vintage-effect Gucci graphics",
+        "mid-blue Acne denim",
+        "floral brocade loafers with fur"
+      ],
+      "Mood": "romantic rebellion, gender transcendence, maximalist fantasy"
+    },
+    {
+      "label": "2019-dad-core",
+      "year": 2019,
+      "tags": [
+        "dad-core",
+        "new-balance",
+        "patagonia",
+        "functional"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "dad-core styling",
+        "authentic suburban comfort"
+      ],
+      "MadeOutOf": [
+        "Navy Patagonia fleece jacket with full-zip",
+        "Plain white Uniqlo crew neck t-shirt with no branding",
+        "Medium wash Levi's 505 regular fit jeans with relaxed thigh and straight leg",
+        "Grey New Balance 990v5 made in USA in premium suede and mesh",
+        "Wire-frame functional glasses"
+      ],
+      "Arrangement": "Comfortable dad stance with hands on hips or thumbs in belt loops, dad-core energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "wire-frame glasses on face"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "navy Patagonia fleece",
+        "white plain tee",
+        "medium wash classic denim",
+        "grey 990v5 dad shoes"
+      ],
+      "Mood": "authentic comfort, ironic appreciation, anti-fashion fashion"
+    },
+    {
+      "label": "2020-pandemic-luxe-isolation-wear",
+      "year": 2020,
+      "tags": [
+        "pandemic",
+        "fear-of-god",
+        "pangaia",
+        "comfort-luxury",
+        "global"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Pandemic Luxe/Isolation Wear styling",
+        "elevated quarantine comfort"
+      ],
+      "MadeOutOf": [
+        "Fear of God Essentials oversized hoodie in heather oatmeal, rubberized logo, dropped shoulders",
+        "Pangaia 365 track pants in sage green, organic cotton, recycled materials",
+        "New Balance 990v5 in grey/white, heritage runner silhouette, ENCAP midsole",
+        "Black KN95 mask, structured fit",
+        "Bottega Veneta padded cassette pouch in matte black, intrecciato weave, worn crossbody"
+      ],
+      "Arrangement": "Relaxed comfortable slightly slouched stance, pandemic comfort with luxury details",
+      "RoomObjects": [],
+      "Accessories": [
+        "Apple Watch Series 6 with woven solo loop band in charcoal",
+        "KN95 mask visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "heather oatmeal Fear of God hoodie",
+        "sage green Pangaia track pants",
+        "grey/white New Balance 990v5",
+        "matte black Bottega pouch"
+      ],
+      "Mood": "elevated isolation, sustainable comfort, anxious luxury"
+    },
+    {
+      "label": "2021-cottage-core-streetwear",
+      "year": 2021,
+      "tags": [
+        "cottage-core",
+        "jw-anderson",
+        "birkenstock",
+        "artisanal"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "cottage-core meets streetwear styling",
+        "post-pandemic artisanal retreat"
+      ],
+      "MadeOutOf": [
+        "Earth-toned JW Anderson patchwork cardigan with hand-knit aesthetic and oversized fit",
+        "Cream Stüssy graphic t-shirt with vintage-effect print",
+        "Indigo Lemaire wide-leg high-rise painter denim",
+        "Taupe suede Birkenstock Boston clogs with contoured footbed",
+        "Natural canvas tote bag unstructured"
+      ],
+      "Arrangement": "Relaxed artisan pose with one hand in pocket, gentle organic energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "chunky hand-knit scarf in natural fibers",
+        "canvas tote visible"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "earth-toned patchwork cardigan",
+        "cream vintage Stüssy tee",
+        "indigo painter denim",
+        "taupe suede Birkenstocks"
+      ],
+      "Mood": "artisanal retreat, post-digital craft, gentle rebellion"
+    },
+    {
+      "label": "2022-y2k-revival",
+      "year": 2022,
+      "tags": [
+        "y2k-revival",
+        "miu-miu",
+        "adidas-samba",
+        "low-rise"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Y2K revival styling",
+        "early 2000s nostalgia reborn"
+      ],
+      "MadeOutOf": [
+        "Cropped brown Miu Miu leather bomber jacket with vintage racing aesthetic",
+        "Tight baby blue vintage band t-shirt",
+        "Khaki low-rise cargo pants in parachute nylon with multiple pockets",
+        "Black and white Adidas Samba with gum sole",
+        "Small nylon shoulder bag"
+      ],
+      "Arrangement": "Early 2000s-style pose with body angled, one hand near face, Y2K revival energy",
+      "RoomObjects": [],
+      "Accessories": [
+        "slim tortoiseshell rectangle sunglasses",
+        "small nylon bag crossbody"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "brown cropped Miu Miu bomber",
+        "baby blue vintage tee",
+        "khaki parachute cargo pants",
+        "black and white Sambas with gum sole"
+      ],
+      "Mood": "nostalgic optimism, millennium redux, cyclical fashion"
+    },
+    {
+      "label": "2023-quiet-luxury-stealth-wealth",
+      "year": 2023,
+      "tags": [
+        "quiet-luxury",
+        "the-row",
+        "loro-piana",
+        "stealth-wealth",
+        "milan"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "Quiet Luxury/Stealth Wealth styling",
+        "old money understatement"
+      ],
+      "MadeOutOf": [
+        "The Row 'Brant' cashmere blazer in charcoal grey, unstructured shoulders, single button",
+        "Loro Piana baby cashmere crewneck sweater in ecru, fine gauge knit, minimal branding",
+        "Zegna cotton-silk blend trousers in taupe, relaxed fit, single pleat",
+        "Maison Margiela Replica sneakers in white leather, minimalist design, paint-splatter detail",
+        "Brunello Cucinelli leather braided belt in cognac"
+      ],
+      "Arrangement": "Refined understated pose with perfect posture, quiet confidence and old money composure",
+      "RoomObjects": [],
+      "Accessories": [
+        "Tom Ford private blend cologne (invisible detail)",
+        "gold Cartier Tank watch visible at cuff"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "charcoal grey cashmere blazer",
+        "ecru baby cashmere sweater",
+        "taupe cotton-silk trousers",
+        "white leather minimal sneakers",
+        "cognac leather belt as only warm accent"
+      ],
+      "Mood": "inherited elegance, invisible wealth, effortless refinement"
+    },
+    {
+      "label": "2024-wide-silhouettes-return",
+      "year": 2024,
+      "tags": [
+        "wide-silhouette",
+        "maison-margiela",
+        "comme-des-garcons",
+        "architectural"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "wide silhouettes return styling",
+        "architectural volume"
+      ],
+      "MadeOutOf": [
+        "Grey Maison Margiela oversized blazer with extreme shoulders and long length",
+        "White Hed Mayner oversized boxy cotton shirt with dropped shoulders and architectural volume",
+        "Black Comme des Garçons Homme Plus extreme wide-leg pleated wool trousers pooling at floor",
+        "Black Lemaire square-toe derby shoes with chunky sole",
+        "Oversized slouchy unstructured leather tote bag"
+      ],
+      "Arrangement": "Architectural pose with arms slightly away from body to emphasize extreme width and volume",
+      "RoomObjects": [],
+      "Accessories": [
+        "large wire-frame glasses on face",
+        "oversized tote at side"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "grey oversized Margiela blazer",
+        "white architectural Hed Mayner shirt",
+        "black extreme wide-leg trousers",
+        "black square-toe derbies",
+        "monochromatic grey/white/black only"
+      ],
+      "Mood": "architectural drama, sculptural fashion, volume worship"
+    },
+    {
+      "label": "2025-tech-minimalism-neo-utility",
+      "year": 2025,
+      "tags": [
+        "tech-minimalism",
+        "arcteryx-veilance",
+        "salomon",
+        "neo-utility"
+      ],
+      "Subject": [
+        "The man from reference [$1]",
+        "tech minimalism/neo-utility styling",
+        "future-forward function"
+      ],
+      "MadeOutOf": [
+        "Black Arc'teryx Veilance composite jacket with gore-tex fabric and integrated hood with minimal seaming",
+        "Charcoal grey Uniqlo U wide-leg trousers with clean lines",
+        "White/silver Salomon XT-6 Advanced technical trail runners with upgraded materials",
+        "Black CÔTE&CIEL Isar ergonomic rucksack with laptop protection"
+      ],
+      "Arrangement": "Clean tech-forward stance suggesting integrated wearable technology and future minimalism",
+      "RoomObjects": [],
+      "Accessories": [
+        "minimalist titanium jewelry single piece"
+      ],
+      "ColorRestriction": [
+        "white backdrop blown out to pure white",
+        "black technical Veilance jacket",
+        "charcoal grey Uniqlo U trousers",
+        "white/silver Salomon XT-6 runners",
+        "black ergonomic rucksack",
+        "monochromatic tech palette"
+      ],
+      "Mood": "functional futurism, seamless technology, utilitarian elegance"
+    }
+  ]
+}

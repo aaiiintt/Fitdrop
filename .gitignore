@@ -1,0 +1,16 @@
+# Dependencies
+node_modules/
+package-lock.json
+
+# Environment
+.env
+
+# System
+.DS_Store
+Thumbs.db
+
+# Archives & Temp
+_archive/
+*.log
+dist/
+tmp/
