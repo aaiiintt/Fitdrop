@@ -1,49 +1,67 @@
-# FitDrop 1980-2025
+# FITDROP: A Vibe Coding Experiment
 
-**FitDrop** is an interactive, physics-based fashion timeline that explores iconic looks from 1980 to 2025. It uses a physics engine to simulate a "pile" of generated fashion images, allowing users to interactively drag, drop, and inspect details of each era's style.
+> "How fast can we go from 'idea' to 'deployed interactive web app' using modern AI tools?"
 
-## Features
+FitDrop is a personal exploration of fashion history (1980-2025) and a testament to the speed of AI-assisted prototyping ("Vibe Coding").
 
--   **Physics Simulation**: powered by `matter.js`, images tumble and stack realistically.
--   **Interactive Inspection**: Drag "models" to the drop zone to reveal detailed wardrobe information.
--   **Generative Content**: Images and wardrobe data generated using Gemini 3 Pro (Nano Banana).
--   **Responsive Design**: Mobile-friendly layout with touch interactions.
+This repo is structured to help you understand the process—and potentially "vibe code" your own version.
 
-## Technology Stack
+## The Vibe Pipeline
 
--   **Frontend**: HTML5, CSS3, Vanilla JavaScript
--   **Physics**: [Matter.js](https://brm.io/matter-js/)
--   **AI/Generation**: Google Gemini 3 Pro
--   **Font**: Space Mono (Google Fonts)
+We built this project in a simple, linear pipeline. You can follow along to create your own.
 
-## Installation & Usage
+### 1. The Data (`data/prompts.json`)
+Everything starts with the data. We used Gemini to generate a JSON file containing 45 years of fashion history.
+*   **Action**: Edit `data/prompts.json` to define your own "looks" or characters.
+*   **Tip**: Use an LLM to generate this JSON structure for you. "Give me 10 eras of [Your Topic] in this JSON format..."
 
-1.  **Clone the repository**:
-    ```bash
-    git clone https://github.com/yourusername/fitdrop.git
-    cd fitdrop
-    ```
+### 2. The Poses (`data/reference_poses/`)
+Consistency is key. To make the "pile" work physically, we needed consistent poses.
+*   We used 10-20 reference images (mannequins/models in specific falling poses).
+*   These live in `data/reference_poses/`.
+*   The generator selects one of these randomly to ensure the AI output matches the physical "hitbox" of the website.
 
-2.  **Serve the site**:
-    The project is a static site. You can serve it using Python's built-in server or any static file host.
+### 3. The Shoot (`pipeline/1_generate_images.js`)
+We don't draw; we prompt. This script acts as our photographer.
+*   It reads your `prompts.json`.
+*   It grabs a random reference pose.
+*   It sends everything to **Gemini 3.0 Pro** (Image Model).
+*   **Run it**: `node pipeline/1_generate_images.js`
+*   **Output**: Raw images land in `generated/raw/`.
 
-    ```bash
-    cd fitdrop_site
-    python3 -m http.server 8000
-    ```
+### 4. The Cut (`pipeline/2_process_cutouts.py`)
+Studio magic. We need transparent backgrounds for the physics engine to look real.
+*   This Python script uses `rembg` (AI background removal) to cleanly cut out the subjects.
+*   **Run it**: `python pipeline/2_process_cutouts.py`
+*   **Output**: Clean, transparent PNGs are saved to `fitdrop_site/images/`.
 
-3.  **Open in Browser**:
-    Navigate to `http://localhost:8000`
+### 5. The Drop (`fitdrop_site/`)
+The interactive playground.
+*   Built with **Matter.js** (Physics) and vanilla JS.
+*   No heavy frameworks. Just `index.html`, `app.js`, and `styles.css`.
+*   **Run it**: `cd fitdrop_site && python3 -m http.server`
 
-## Project Structure
+---
 
--   `fitdrop_site/`: The main web application.
-    -   `app.js`: Core logic for physics, interactions, and UI.
-    -   `data.js`: Auto-generated dataset of looks and wardrobe metadata.
-    -   `images/`: Directory of generated fashion assets.
--   `generated_images/`: Raw output from the AI generation pipeline.
--   `setup_prompts.js` / `test_generation.js`: Scripts for generating the underlying content.
+## How to "Vibe Code" This Yourself
 
-## License
+**Prerequisites:**
+*   Node.js
+*   Python (with `rembg`, `Pillow`)
+*   A Google Gemini API Key (saved in `.env`)
 
-MIT License. See [LICENSE](LICENSE) for details.
+**Setup:**
+1.  **Clone the repo**: Get the code.
+2.  **Add your API Key**: Create a `.env` file with `GEMINI_API_KEY=your_key`.
+3.  **Install Deps**:
+    *   JS: `npm install`
+    *   Python: `pip install rembg pillow`
+
+**The Workflow:**
+1.  **Drop your reference images** into `data/reference_poses/`.
+2.  **Define your content** in `data/prompts.json`.
+3.  **Generate**: `node pipeline/1_generate_images.js`
+4.  **Process**: `python pipeline/2_process_cutouts.py`
+5.  **Serve**: Go to `fitdrop_site/` and open it up.
+
+Happy dropping.

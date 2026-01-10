@@ -5,10 +5,10 @@ const https = require('https');
 
 // Configuration
 const API_KEY = process.env.GEMINI_API_KEY;
-const PROMPTS_FILE = path.join(__dirname, 'prompts_clean.json');
-const SHOOT_CONFIG_FILE = path.join(__dirname, 'shoot_config.json');
-const IMAGES_DIR = path.join(__dirname, 'images');
-const OUTPUT_DIR = path.join(__dirname, 'generated_images');
+const PROMPTS_FILE = path.join(__dirname, '../data/prompts.json');
+const SHOOT_CONFIG_FILE = path.join(__dirname, '../data/shoot_config.json');
+const IMAGES_DIR = path.join(__dirname, '../data/reference_poses');
+const OUTPUT_DIR = path.join(__dirname, '../generated/raw');
 const MODEL_NAME = "gemini-3-pro-image-preview";
 const API_URL = `https://generativelanguage.googleapis.com/v1beta/models/${MODEL_NAME}:generateContent?key=${API_KEY}`;
 
