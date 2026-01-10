@@ -62,15 +62,48 @@
     <button id="info-btn">INFO</button>
     <div id="info-popover">
         <img src="arrow.svg" id="info-arrow" alt="Look here!">
-        <p>For details of any look, drag the 'model' to the top right of the screen and release it in the drop-zone.</p>
-        <p>Fitdrop was a project to see if I could put myself in iconic looks from 1980-2025.</p>
-        <p>It was an experiment in two things:</p>
-        <ol>
-            <li>Seeing just how good Nano Banana is at specific clothing looks (answer: I'm impressed, are you?)</li>
-            <li>How quickly I could vibe-code a fun way to present all these looks (answer: shockingly quickly).</li>
-        </ol>
-        <p style="margin-top: 10px; font-size: 0.75rem; color: #666;">Built with Gemini, Antigravity, Nano Banana,
-            matter.js, and Python.</p>
+
+        <div class="popover-tabs">
+            <button class="tab-btn active" data-tab="what">What?</button>
+            <button class="tab-btn" data-tab="how">How?</button>
+            <button class="tab-btn" data-tab="why">Why?</button>
+        </div>
+
+        <div class="tab-content active" id="tab-what">
+            <p>Fitdrop is a personal exploration of fashion from 1980 to 2025.</p>
+
+            <div class="video-placeholder">
+                <div class="video-aspect-box">
+                    <span>How-to Video<br>(1:1 Placeholder)</span>
+                </div>
+            </div>
+
+            <p style="margin-top: 15px;">Throw me around and if you want to know more about an outfit drag it to the
+                corner.</p>
+            <p>If the pile gets too messy restart the drop, or just chuck things around.</p>
+        </div>
+
+        <div class="tab-content" id="tab-how">
+            <p><strong>The Tech Stack:</strong></p>
+            <ul style="padding-left: 20px; margin-bottom: 10px;">
+                <li><strong>Gemini 1.5 Pro</strong>: Vibe coding & logic.</li>
+                <li><strong>Nano Banana</strong>: Image synthesis.</li>
+                <li><strong>Matter.js</strong>: 2D Physics engine.</li>
+                <li><strong>Python</strong>: Asset pipeline.</li>
+            </ul>
+            <p>Built rapidly as a "vibe coding" experiment to test the speed of AI-assisted prototyping.</p>
+        </div>
+
+        <div class="tab-content" id="tab-why">
+            <p><strong>The Experiment:</strong></p>
+            <p>Two questions driving this project:</p>
+            <ol style="padding-left: 20px;">
+                <li>Can AI accurately recreate specific fashion aesthetics from the last 45 years?</li>
+                <li>How fast can we go from "idea" to "deployed interactive web app" using modern AI tools?</li>
+            </ol>
+            <p style="margin-top: 10px; font-size: 0.75rem; color: #666;">(And yes, dropping things is just satisfying.)
+            </p>
+        </div>
     </div>
 
     <!-- Physics World Container -->

@@ -402,22 +402,54 @@ if (replayBtn) {
 }
 
 // Info Popover Logic
-const infoBtn = document.getElementById('info-btn');
-const infoPopover = document.getElementById('info-popover');
+// --- Tabbed Popover Logic ---
+const tabs = document.querySelectorAll('.tab-btn');
+const contents = document.querySelectorAll('.tab-content');
 
-if (infoBtn && infoPopover) {
+tabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+        // Deactivate all
+        tabs.forEach(t => t.classList.remove('active'));
+        contents.forEach(c => c.classList.remove('active'));
+
+        // Activate clicked
+        tab.classList.add('active');
+        const targetId = tab.getAttribute('data-tab');
+        document.getElementById(`tab-${targetId}`).classList.add('active');
+    });
+});
+
+// --- Auto-Open Logic on First Visit ---
+const infoPopover = document.getElementById('info-popover');
+const infoBtn = document.getElementById('info-btn');
+
+// Ensure elements exist before adding listeners
+if (infoPopover && infoBtn) {
+    function togglePopover() {
+        infoPopover.classList.toggle('visible');
+    }
 
     infoBtn.addEventListener('click', (e) => {
         e.stopPropagation();
-        infoPopover.classList.toggle('visible');
+        togglePopover();
     });
 
-    // Close popover when clicking anywhere else
+    // Close when clicking outside
     document.addEventListener('click', (e) => {
         if (!infoPopover.contains(e.target) && e.target !== infoBtn) {
-            if (infoPopover.classList.contains('visible')) {
-                infoPopover.classList.remove('visible');
-            }
+            infoPopover.classList.remove('visible');
+        }
+    });
+
+    // Auto-open check
+    window.addEventListener('load', () => {
+        const hasVisited = localStorage.getItem('fitdrop_visited');
+        if (!hasVisited) {
+            // First visit: Open popover
+            setTimeout(() => {
+                infoPopover.classList.add('visible');
+            }, 1000); // Slight delay for effect
+            localStorage.setItem('fitdrop_visited', 'true');
         }
     });
 } else {

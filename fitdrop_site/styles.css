@@ -356,6 +356,100 @@ html {
     margin-bottom: 5px;
 }
 
+/* Tabs Navigation */
+.popover-tabs {
+    display: flex;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 15px;
+    margin-top: -10px;
+    /* Pull into padding slightly */
+    gap: 5px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: 1px solid transparent;
+    border-bottom: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    font-family: var(--font-main);
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    transition: all 0.2s ease;
+    border-radius: 4px 4px 0 0;
+    /* Rounded top corners */
+}
+
+.tab-btn:hover {
+    color: #000;
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.tab-btn.active {
+    background: #000;
+    color: #fff;
+    border-color: #000;
+}
+
+/* Tab Content */
+.tab-content {
+    display: none;
+    animation: fadeIn 0.3s ease;
+}
+
+.tab-content.active {
+    display: block;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Video Placeholder (1:1 Aspect Ratio) */
+.video-placeholder {
+    width: 100%;
+    max-width: 200px;
+    /* Keep it manageable */
+    margin: 15px auto;
+    background: #eee;
+    border: 1px solid #ddd;
+    position: relative;
+    /* Aspect Ratio Hack */
+}
+
+.video-aspect-box {
+    width: 100%;
+    padding-top: 100%;
+    /* 1:1 Aspect Ratio */
+    position: relative;
+}
+
+.video-aspect-box span,
+.video-aspect-box video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #999;
+    font-size: 0.75rem;
+    object-fit: cover;
+}
+
 #info-arrow {
     position: absolute;
     bottom: 100%;
