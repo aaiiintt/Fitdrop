@@ -1,5 +1,7 @@
 # FITDROP: A Vibe Coding Experiment
 
+![FitDrop Interface](data/screengrab_fitdrop.jpeg)
+
 FitDrop is a personal exploration of fashion history (1980-2025) and a testament to the speed of AI-assisted prototyping ("Vibe Coding").
 
 This repo is structured to help you understand the process—and potentially "vibe code" your own version.
@@ -15,6 +17,9 @@ Everything starts with the data. I used Gemini to generate a JSON file containin
 
 ### 2. The Identity (`data/reference_poses/`)
 To make the generated images actually look like *someone* (in this case, me), we use "Subject Injection".
+
+![Reference Cloud Example](data/reference_poses.png)
+
 *   We don't just use random poses. We use a **Reference Cloud** of 10-15 images of the subject.
 *   These images (Anchor, Context, Expression) are fed into Gemini 3.0 Pro to create a semantic cluster of the person's identity.
 *   The script (`pipeline/1_generate_images.js`) grabs these from `data/reference_poses/`.
