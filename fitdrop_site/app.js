@@ -70,8 +70,8 @@ const state = {
 
 // Initialize Renderer
 // OPTIMIZATION: Cap pixel ratio on mobile to prevent huge canvases
-// Revert optimization: Pixel ratio cap caused hit-test mismatches on high-DPI
-const pixelRatio = window.devicePixelRatio;
+// Cap at 2.0 to save GPU on high-DPI devices (e.g. Pixel 7 is ~3.5 -> HUGE fill rate)
+const pixelRatio = Math.min(window.devicePixelRatio, 2);
 
 const render = Render.create({
     element: document.getElementById('world'),
@@ -265,21 +265,30 @@ function resetWorld() {
 
 // --- Render Loop & Camera Logic ---
 
+let frameCount = 0;
+let targetOffset = 0; // Cache target Y
+
 function updateEffects() {
+    frameCount++;
+
     // 1. Camera Scroll Logic
-    const allBodies = Composite.allBodies(world);
-    let minY = window.innerHeight; // Default to ground level
+    // OPTIMIZATION: Throttle O(N) body scan to run only every 5 frames
+    // This reduces CPU load significantly when pile grows to 50+ items
+    if (frameCount % 5 === 0) {
+        const allBodies = Composite.allBodies(world);
+        let minY = window.innerHeight; // Default to ground level
 
-    allBodies.forEach(b => {
-        // Ignore static bodies (walls/ground) AND currently falling bodies
-        if (!b.isStatic && !b.plugin.isFalling && b.position.y < minY) {
-            minY = b.position.y;
-        }
-    });
+        allBodies.forEach(b => {
+            // Ignore static bodies (walls/ground) AND currently falling bodies
+            if (!b.isStatic && !b.plugin.isFalling && b.position.y < minY) {
+                minY = b.position.y;
+            }
+        });
 
-    const targetOffset = Math.max(0, 100 - minY); // Keep 100px padding
+        targetOffset = Math.max(0, 100 - minY); // Keep 100px padding
+    }
 
-    // Smooth Lerp for camera movement
+    // Smooth Lerp for camera movement (Runs every frame for smoothness)
     state.offsetY += (targetOffset - state.offsetY) * 0.05;
 
     // Apply translation to Render bounds
