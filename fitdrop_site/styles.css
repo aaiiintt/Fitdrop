@@ -323,9 +323,8 @@ html {
     background: rgba(255, 255, 255, 0.95);
     /* Higher opacity */
     border: 1px solid #000;
-    /* Hard black border */
-    padding: 0;
-    /* Remove padding to let tabs flush */
+    padding: 25px;
+    /* Restore standard padding */
     box-shadow: -5px -5px 0px rgba(0, 0, 0, 0.1);
     z-index: 9999;
     pointer-events: auto;
@@ -357,58 +356,51 @@ html {
     margin-bottom: 5px;
 }
 
-/* Tabs Navigation */
+/* Tabs Navigation - Minimal Underline */
 .popover-tabs {
     display: flex;
-    border-bottom: 2px solid #000;
-    /* The "Folder" rail */
-    margin: 15px 15px 0 15px;
-    /* Offset from edges */
-    gap: 4px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 20px;
+    margin-top: -10px;
+    gap: 20px;
+    /* Space between tabs */
+    padding-bottom: 0;
 }
 
 .tab-btn {
-    background: #e0e0e0;
-    /* Inactive: Grey */
-    border: 2px solid transparent;
-    border-bottom: none;
-    padding: 8px 16px;
+    background: transparent;
+    border: none;
+    padding: 10px 0;
     cursor: pointer;
     font-family: var(--font-main);
     font-size: 0.8rem;
-    font-weight: 700;
-    color: #888;
+    font-weight: 400;
+    /* Regular by default */
+    color: #999;
     text-transform: uppercase;
-    transition: all 0.1s ease;
-    border-radius: 6px 6px 0 0;
-    /* Folder rounded corners */
-    margin-bottom: -2px;
-    /* Pull down to sit on the line */
-    position: relative;
-    z-index: 1;
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+    /* Reserve space for underline */
+    margin-bottom: -1px;
+    /* Sit on the line */
 }
 
 .tab-btn:hover {
-    background: #d0d0d0;
-    color: #000;
+    color: #666;
 }
 
 .tab-btn.active {
-    background: #fff;
-    /* Active: White merge */
+    background: transparent;
     color: #000;
-    border: 2px solid #000;
-    border-bottom: 2px solid #fff;
-    /* Erase the line */
-    z-index: 3;
+    font-weight: 700;
+    border-bottom: 2px solid #000;
 }
 
 /* Tab Content */
 .tab-content {
     display: none;
-    padding: 20px;
-    /* Add padding back here */
     animation: fadeIn 0.3s ease;
+    /* No extra padding needed here as container handles it */
 }
 
 .tab-content.active {
