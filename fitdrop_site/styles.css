@@ -409,6 +409,25 @@ html {
     display: block;
 }
 
+/* Close Popover Button */
+#close-popover {
+    position: absolute;
+    top: 10px;
+    right: 15px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #999;
+    z-index: 10002;
+    padding: 5px;
+    line-height: 1;
+}
+
+#close-popover:hover {
+    color: #000;
+}
+
 @keyframes fadeIn {
     from {
         opacity: 0;

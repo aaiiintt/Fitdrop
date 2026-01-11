@@ -468,6 +468,15 @@ if (infoPopover && infoBtn) {
     console.error("Info button or popover elements missing!");
 }
 
+// Close button logic
+const closeBtn = document.getElementById('close-popover');
+if (closeBtn) {
+    closeBtn.addEventListener('click', (e) => {
+        e.stopPropagation();
+        infoPopover.classList.remove('visible');
+    });
+}
+
 // --- Initialization ---
 Render.run(render);
 Runner.run(runner, engine);
