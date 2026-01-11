@@ -89,26 +89,32 @@ const render = Render.create({
 const runner = Runner.create();
 
 // --- Audio Setup ---
-try {
-    state.audio = new Audio('pop.mp3');
-    state.audio.volume = 0.4;
-} catch (e) {
-    console.log("Audio file not found or blocked");
-}
+// Loading 5 harmonic samples for variation
+const audioFiles = ['pop1.mp3', 'pop2.mp3', 'pop3.mp3', 'pop4.mp3', 'pop5.mp3'];
+state.audioPool = [];
+
+audioFiles.forEach(file => {
+    const audio = new Audio(file);
+    audio.volume = 0.4;
+    state.audioPool.push(audio);
+});
 
 // Unlock audio on first user interaction
 const unlockAudio = () => {
-    if (state.audioUnlocked || !state.audio) return;
+    if (state.audioUnlocked) return;
 
-    // Play silent sound to unlock AudioContext
-    state.audio.play().then(() => {
-        state.audio.pause();
-        state.audio.currentTime = 0;
-        state.audioUnlocked = true;
-        // Remove listeners once unlocked
-        document.removeEventListener('click', unlockAudio);
-        document.removeEventListener('touchstart', unlockAudio);
-    }).catch(e => console.log("Unlock failed", e));
+    // Try to unlock all by playing the first one muted efficiently
+    const unlocker = state.audioPool[0];
+    if (unlocker) {
+        unlocker.play().then(() => {
+            unlocker.pause();
+            unlocker.currentTime = 0;
+            state.audioUnlocked = true;
+            // Remove listeners once unlocked
+            document.removeEventListener('click', unlockAudio);
+            document.removeEventListener('touchstart', unlockAudio);
+        }).catch(e => console.log("Unlock failed", e));
+    }
 };
 
 document.addEventListener('click', unlockAudio);
@@ -119,12 +125,15 @@ document.addEventListener('touchstart', unlockAudio);
  */
 const playSound = () => {
     const now = Date.now();
-    if (state.audio && state.audioUnlocked) {
+    if (state.audioUnlocked && state.audioPool.length > 0) {
         // Throttling check
         if (now - state.lastSoundTime < CONFIG.soundCooldown) return;
 
-        const sound = state.audio.cloneNode();
-        sound.volume = 0.3 + Math.random() * 0.2;
+        // Pick random sound from pool
+        const randomIndex = Math.floor(Math.random() * state.audioPool.length);
+        const sound = state.audioPool[randomIndex].cloneNode();
+
+        sound.volume = 0.3 + Math.random() * 0.2; // Slight volume variation
         sound.play().catch(() => { });
 
         state.lastSoundTime = now;
