@@ -424,9 +424,8 @@ html {
 /* Video Placeholder (1:1 Aspect Ratio) */
 .video-placeholder {
     width: 100%;
-    max-width: 200px;
-    /* Keep it manageable */
-    margin: 15px auto;
+    /* Removed max-width to align with text */
+    margin: 15px 0;
     background: #eee;
     border: 1px solid #ddd;
     position: relative;
