@@ -69,9 +69,8 @@ const state = {
 
 
 // Initialize Renderer
-// OPTIMIZATION: Cap pixel ratio on mobile to prevent huge canvases
-// Cap at 2.0 to save GPU on high-DPI devices (e.g. Pixel 7 is ~3.5 -> HUGE fill rate)
-const pixelRatio = Math.min(window.devicePixelRatio, 2);
+// NOTE: Manual pixel ratio optimization removed to fix Windows High-DPI input offset bug.
+// We now let the browser/Matter.js handle density natively.
 
 const render = Render.create({
     element: document.getElementById('world'),
@@ -80,7 +79,7 @@ const render = Render.create({
         width: window.innerWidth,
         height: window.innerHeight,
         background: '#f4f4f4',
-        pixelRatio: pixelRatio, // Explicitly set optimized pixel ratio
+        // pixelRatio explicitly removed to allow native handling
         wireframes: false,
         showAngleIndicator: false
     }
