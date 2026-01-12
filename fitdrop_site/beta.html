@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-T54LQCHCJ8"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+
+        gtag('config', 'G-T54LQCHCJ8');
+    </script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <!-- Primary Meta Tags -->
+    <title>FitDrop 1980-2025</title>
+    <meta name="title" content="FitDrop 1980-2025">
+    <meta name="description" content="A personal exploration of fashion from 1980 to 2025. Vibe coded with Gemini.">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://fitdrop.cc/">
+    <meta property="og:title" content="FitDrop 1980-2025">
+    <meta property="og:description"
+        content="A personal exploration of fashion from 1980 to 2025. Vibe coded with Gemini.">
+    <meta property="og:image" content="https://fitdrop.cc/og-image.jpg">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://fitdrop.cc/">
+    <meta property="twitter:title" content="FitDrop 1980-2025">
+    <meta property="twitter:description"
+        content="A personal exploration of fashion from 1980 to 2025. Vibe coded with Gemini.">
+    <meta property="twitter:image" content="https://fitdrop.cc/og-image.jpg">
+
+    <link rel="stylesheet" href="styles.css?v=22">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Load Matter.js -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/matter-js/0.19.0/matter.min.js" defer></script>
+    <!-- Load Data -->
+    <script src="data.js" defer></script>
+</head>
+
+<body>
+
+    <div id="ui-layer">
+        <h1 id="title">
+            FITDROP
+            <span id="year-counter">1980</span>
+        </h1>
+
+        <button id="replay-btn" aria-label="Replay" title="Replay">
+            RESTART DROP
+        </button>
+        </h1>
+
+        <div id="drop-zone">
+            <div class="zone-label">DRAG FIT<br>HERE FOR<br>DETAILS</div>
+        </div>
+
+
+
+        <div id="info-panel" class="hidden">
+            <button id="close-panel">×</button>
+            <div class="panel-content">
+                <h2 id="panel-year">1980</h2>
+                <div class="image-container">
+                    <img id="panel-image" src="" alt="Outfit Preview">
+                </div>
+                <h3 id="panel-label">LABEL_NAME</h3>
+                <div class="divider"></div>
+                <!-- WARDROBE header removed -->
+                <ul id="panel-wardrobe">
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <button id="info-btn">INFO</button>
+    <div id="info-popover">
+        <button id="close-popover" aria-label="Close">×</button>
+        <img src="arrow.svg" id="info-arrow" alt="Look here!">
+
+        <div class="popover-tabs">
+            <button class="tab-btn active" data-tab="what">What?</button>
+            <button class="tab-btn" data-tab="how">How?</button>
+            <button class="tab-btn" data-tab="why">Why?</button>
+            <button class="tab-btn" data-tab="who">Who?</button>
+        </div>
+
+        <div class="tab-content active" id="tab-what">
+            <p>Fitdrop is a personal exploration of fashion from 1980 to 2025.</p>
+
+            <div class="video-placeholder">
+                <div class="video-aspect-box">
+                    <video autoplay loop muted playsinline>
+                        <source src="how-to.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                </div>
+            </div>
+
+            <p style="margin-top: 15px;">If you want to know more about an outfit drag it to the corner. If the pile
+                gets too messy restart the drop, or just chuck things around.</p>
+        </div>
+
+        <div class="tab-content" id="tab-how">
+            <p><strong>The Stack:</strong></p>
+            <ul style="padding-left: 20px; margin-bottom: 10px;">
+                <li><strong>Gemini 3.0 Pro</strong>: Vibe coding and development of specific outfit prompting.</li>
+                <li><strong>Nano Banana Pro (Gemini 3.0 Pro Image)</strong>: Image generation.</li>
+                <li><strong>Matter.js</strong>: 2D Physics engine.</li>
+                <li><strong>Python</strong>: Auto image cutouts.</li>
+            </ul>
+        </div>
+
+        <div class="tab-content" id="tab-why">
+
+            <ol style="padding-left: 20px;">
+                <li>I'd been using Nano Banana for a project and found a way of prompting very specific fashion looks.
+                </li>
+                <li>Wondered what would happen if I built a Fashion Expert 'agent' that could feed this type of image
+                    prompt (Answer: you get lots of good images).</li>
+                <li>I love physics engines (like matter.js) but have never been able to wrangle them. (Now I can, thanks
+                    Gemini).</li>
+                <li>One of my new years resolutions was to 'put myself out there more'. I guess this 45x'es my target.
+                </li>
+            </ol>
+            <p style="margin-top: 10px; font-size: 0.75rem; color: #666;">(And dropping things is just satisfying.)
+            </p>
+        </div>
+
+        <div class="tab-content" id="tab-who">
+            <p>Hi, I'm Iain. I work at a place called <a href="https://food.xyz">FOOD</a>. I've been a web nerd for a
+                lot of years. But my ability to make things has always been
+                limited by my inability to code. My brain just doesn't work that way.</p>
+            <p>'Vibe coding' is allowing me to make silly projects like this. Things that I'd only dreamed of being able
+                to make previously.</p>
+            <p>I'm happy to share more on how I did it.</p>
+            <p style="margin-top: 15px;">Come find me on <a href="https://www.instagram.com/iaintait"
+                    target="_blank">Instagram</a>, <a href="https://www.linkedin.com/in/iaintait"
+                    target="_blank">LinkedIn</a> or <a href="https://github.com/aaiiintt" target="_blank">Github</a>.
+            </p>
+        </div>
+    </div>
+
+    <!-- Physics World Container -->
+    <div id="world"></div>
+
+    <script src="app-beta.js" defer></script>
+</body>
+
+</html>
